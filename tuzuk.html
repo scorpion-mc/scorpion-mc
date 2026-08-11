@@ -25,15 +25,15 @@
     .nav-links a:hover,.nav-links a.active{color:#fff}
     .menu-toggle{display:none;flex-direction:column;gap:7px;cursor:pointer}.menu-toggle span{display:block;width:28px;height:2px;background:#fff}
     .hero{text-align:center;padding:8.5rem 1.5rem 1.35rem;position:relative}
-    .eyebrow{color:var(--red-bright);letter-spacing:.38em;font-weight:700;font-size:.72rem;text-transform:uppercase;margin:0 0 .8rem}
-    .hero h1{font-family:Inter,Arial,sans-serif;font-weight:900;font-size:clamp(3rem,6vw,5.8rem);letter-spacing:.2em;margin:0;line-height:1;text-indent:.2em;text-shadow:0 0 42px rgba(225,40,53,.24)}
-    .hero p{color:#8d8d92;letter-spacing:.18em;text-transform:uppercase;font-size:.82rem;margin:1.2rem 0 0}
-    .constitution-layout{width:min(1580px,96vw);margin:0 auto 5rem;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.5rem;align-items:start}
-    .book-panel{position:relative;min-width:0;background:transparent;border:0;padding:.35rem 0 0;overflow:visible}
-    .panel-heading{display:flex;align-items:end;justify-content:center;gap:1rem;padding:0 .45rem .25rem;position:relative;z-index:2;text-align:center}
-    .panel-kicker{display:block;color:#777;font-size:.63rem;letter-spacing:.24em;text-transform:uppercase;margin-bottom:.35rem}
-    .panel-heading h2{font-family:Hessian,serif;letter-spacing:.13em;font-size:clamp(1.25rem,2vw,2rem);margin:0}
-    .book-stage{height:535px;display:flex;align-items:flex-start;justify-content:center;position:relative;perspective:1600px;padding-top:18px}
+    .eyebrow{color:var(--red-bright);letter-spacing:.38em;font-weight:700;font-size:.72rem;text-transform:uppercase;margin:0 0 1.65rem}
+    .hero h1{font-family:Hessian,Georgia,serif;font-weight:400;font-size:clamp(3.8rem,7vw,6.8rem);letter-spacing:.16em;margin:0;line-height:1.08;text-indent:.16em;text-shadow:0 0 42px rgba(225,40,53,.24)}
+    .hero p{color:#8d8d92;letter-spacing:.18em;text-transform:uppercase;font-size:.82rem;margin:1.5rem 0 0}
+    .constitution-layout{width:min(1180px,96vw);margin:1.5rem auto 7rem;display:grid;grid-template-columns:1fr;gap:7rem;align-items:start}
+    .book-panel{position:relative;width:100%;min-width:0;background:transparent;border:0;padding:0;overflow:visible}
+    .panel-heading{display:flex;align-items:end;justify-content:center;padding:0 1rem 1.25rem;position:relative;z-index:2;text-align:center}
+    .panel-kicker{display:block;color:#777;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;margin-bottom:.55rem}
+    .panel-heading h2{font-family:Hessian,serif;letter-spacing:.15em;font-size:clamp(2rem,3vw,3.15rem);margin:0;text-indent:.15em;text-shadow:0 0 28px rgba(225,40,53,.16)}
+    .book-stage{height:720px;display:flex;align-items:flex-start;justify-content:center;position:relative;perspective:2000px;padding-top:8px}
     .book{visibility:hidden;filter:drop-shadow(0 24px 22px rgba(0,0,0,.7));transform:translateX(-25%)}
     .page{background:#171719;overflow:hidden}
     .page-content{width:100%;height:100%;background-size:cover;background-position:center;border:1px solid rgba(255,255,255,.05)}
@@ -48,14 +48,14 @@
     .protocol-cover h3{font-family:Hessian,serif;font-size:34px;letter-spacing:.12em;margin:12px 0;line-height:1.05}
     .protocol-cover p{font:italic 13px Georgia,serif;color:#aa9f8c}
     .back-cover{height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;background:linear-gradient(145deg,#0b0b0c,#181012);border:8px double #491316;color:#aa9f8c;font:italic 13px Georgia,serif}
-    .controls{display:flex;align-items:center;justify-content:center;gap:.7rem;padding:.4rem 0 .15rem;position:relative;z-index:4}
-    .control-btn{width:44px;height:44px;border:1px solid var(--line);border-radius:50%;color:#fff;background:#101014;cursor:pointer;font-size:1.2rem;transition:.25s ease}
+    .controls{display:flex;align-items:center;justify-content:center;gap:1rem;padding:.8rem 0 .15rem;position:relative;z-index:4}
+    .control-btn{width:52px;height:52px;border:1px solid var(--line);border-radius:50%;color:#fff;background:#101014;cursor:pointer;font-size:1.45rem;transition:.25s ease}
     .control-btn:hover{transform:translateY(-2px);border-color:var(--red-bright);background:rgba(162,15,25,.22);box-shadow:0 0 24px rgba(225,40,53,.18)}
-    .page-counter{min-width:96px;text-align:center;color:#888;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
+    .page-counter{min-width:110px;text-align:center;color:#aaa;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase}
     footer{padding:2.5rem;text-align:center;border-top:1px solid rgba(255,255,255,.06);color:#444;font-size:.72rem;letter-spacing:.22em}
-    @media(max-width:1250px){.constitution-layout{grid-template-columns:1fr}.book-stage{height:540px}.book-panel{max-width:790px;width:100%;margin:auto}}
+    @media(max-width:1099px){.constitution-layout{width:min(880px,96vw);gap:6rem}.book-stage{height:575px}.book{transform:translateX(0)}}
     @media(max-width:900px){.container{padding:0 1.4rem}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#050505;padding:1.2rem 1.4rem;flex-direction:column;gap:1rem}.nav-links.active{display:flex}.menu-toggle{display:flex}}
-    @media(max-width:700px){.hero{padding-top:7rem}.hero p{line-height:1.7}.constitution-layout{width:100%;padding:0 .55rem}.panel-heading{padding:.4rem .5rem .2rem}.book-stage{height:430px}.book{transform:translateX(0)}.text-page{padding:24px 21px}.text-page p{font-size:10.5px}.control-btn{width:40px;height:40px}}
+    @media(max-width:700px){.hero{padding-top:7rem}.hero p{line-height:1.7}.constitution-layout{width:100%;padding:0 .55rem;gap:5rem}.panel-heading{padding:.4rem .5rem 1rem}.panel-heading h2{font-size:2rem}.book-stage{height:420px}.book{transform:translateX(0)}.text-page{padding:24px 21px}.text-page p{font-size:10.5px}.control-btn{width:44px;height:44px}}
   </style>
 </head>
 <body>
@@ -96,7 +96,10 @@
     function setupBook(key,id){
       const el=document.getElementById(id);
       const mobile=window.innerWidth<700;
-      const flip=new St.PageFlip(el,{width:mobile?270:315,height:mobile?359:419,size:'fixed',showCover:true,usePortrait:mobile,flippingTime:900,drawShadow:true,maxShadowOpacity:.55,mobileScrollSupport:true});
+      const compact=window.innerWidth<1100;
+      const pageWidth=mobile?300:(compact?400:520);
+      const pageHeight=mobile?399:(compact?532:691);
+      const flip=new St.PageFlip(el,{width:pageWidth,height:pageHeight,size:'fixed',showCover:true,usePortrait:compact,flippingTime:900,drawShadow:true,maxShadowOpacity:.55,mobileScrollSupport:true});
       flip.loadFromHTML(el.querySelectorAll('.page')); el.style.visibility='visible'; books[key]=flip;
       const counter=document.getElementById(key+'-count');
       flip.on('flip',e=>counter.textContent=`${e.data+1} / 10`);
