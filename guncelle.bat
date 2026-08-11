@@ -3,6 +3,7 @@ setlocal
 chcp 65001 >nul
 title SCORPION MC - Siteyi Yayinla
 cd /d "%~dp0"
+set "GCM_INTERACTIVE=never"
 
 echo ==============================================
 echo       SCORPION MC - SITEYI YAYINLA
@@ -19,6 +20,10 @@ if not exist ".git" (
     echo [HATA] Bu dosya site klasorunun icinde degil.
     goto :failed
 )
+
+rem Bu site her zaman scorpion-mc GitHub hesabini kullanir.
+git config --local credential.https://github.com.username scorpion-mc
+git config --local credential.useHttpPath true
 
 echo [1/4] Degisiklikler hazirlaniyor...
 git add -A
