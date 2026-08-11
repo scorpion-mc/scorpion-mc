@@ -1,225 +1,111 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tüzük | Scorpion MC</title>
-    <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
-    <style>
-        body {
-            background-color: #000;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Galeri Sayfasından Alınan Header Stili */
-        .gallery-header {
-            text-align: center;
-            margin-bottom: 2rem; /* Kitaba yer açmak için biraz azaltıldı */
-            padding-top: 8rem;
-        }
-
-        .gallery-header h1 {
-            font-size: 5rem;
-            letter-spacing: 10px;
-            margin-bottom: 1rem;
-            color: #fff;
-            font-family: 'Hessian', serif;
-        }
-
-        .gallery-header p {
-            color: #666;
-            letter-spacing: 3px;
-            font-size: 1rem;
-            text-transform: uppercase;
-        }
-
-        /* Kitap Sahnesi - Tam Orta */
-        .book-stage {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            padding-bottom: 5rem;
-        }
-
-        /* Kitap Boyutu - Biraz Küçültüldü */
-        #book-container {
-            box-shadow: 0 0 50px rgba(0,0,0,0.8);
-            visibility: hidden; /* JS yüklenene kadar */
-        }
-
-        .page { background-color: #1a1a1a; overflow: hidden; }
-        .page-content {
-            width: 100%; height: 100%;
-            background-size: cover;
-            background-position: center;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        /* Navigasyon Okları - Galeri Stili */
-        .nav-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            z-index: 100;
-        }
-
-        .nav-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: #fff;
-            box-shadow: 0 0 20px rgba(255,255,255,0.1);
-        }
-
-        #prev { left: 5%; }
-        #next { right: 5%; }
-
-        footer {
-            padding: 2rem 0;
-            background: #000;
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .copyright {
-            color: #444;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-        }
-
-        /* Reveal Animasyonu */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (max-width: 768px) {
-            .gallery-header h1 { font-size: 3rem; }
-            .nav-btn { width: 40px; height: 40px; font-size: 1rem; }
-        }
-    </style>
-  <script async type="module" crossorigin src="./assets/tuzuk-legacy-aYYHVIdB.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Scorpion MC iç tüzüğü ve kulüplerarası dış protokolü.">
+  <title>Tüzük | Scorpion MC</title>
+  <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/style-legacy-toXfV2aB.js">
   <link rel="stylesheet" href="./assets/mobile.css">
   <link rel="stylesheet" href="./assets/animations.css">
+  <style>
+    @font-face{font-family:Hessian;src:url('assets/Hessian.otf') format('opentype');font-display:swap}
+    :root{--red:#a20f19;--red-bright:#e12835;--gold:#c7a76a;--ink:#ddd4c2;--panel:#0b0b0d;--line:rgba(255,255,255,.12)}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;color:#fff;background:#020203;font-family:Inter,Arial,sans-serif;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 20%,rgba(162,15,25,.16),transparent 38%),linear-gradient(115deg,transparent 0 48%,rgba(255,255,255,.018) 50%,transparent 52%);z-index:-1}
+    .hero{text-align:center;padding:9rem 1.5rem 2.25rem;position:relative}
+    .eyebrow{color:var(--red-bright);letter-spacing:.38em;font-weight:700;font-size:.72rem;text-transform:uppercase;margin:0 0 .8rem}
+    .hero h1{font-family:Hessian,serif;font-size:clamp(3rem,7vw,6.5rem);letter-spacing:.13em;margin:0;line-height:.9;text-shadow:0 0 42px rgba(225,40,53,.24)}
+    .hero p{color:#8d8d92;letter-spacing:.18em;text-transform:uppercase;font-size:.82rem;margin:1.2rem 0 0}
+    .constitution-layout{width:min(1760px,96vw);margin:0 auto 5rem;display:grid;grid-template-columns:minmax(0,1fr) 110px minmax(0,1fr);gap:1rem;align-items:start}
+    .book-panel{position:relative;min-width:0;background:linear-gradient(145deg,rgba(18,18,21,.92),rgba(5,5,7,.95));border:1px solid var(--line);border-radius:22px;padding:1.2rem 1rem 1rem;box-shadow:0 28px 80px rgba(0,0,0,.6);overflow:hidden}
+    .book-panel:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,.025),transparent);pointer-events:none}
+    .book-panel[data-book="external"]{border-color:rgba(199,167,106,.28)}
+    .panel-heading{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.25rem .45rem 1rem;border-bottom:1px solid var(--line);position:relative;z-index:2}
+    .panel-kicker{display:block;color:#777;font-size:.63rem;letter-spacing:.24em;text-transform:uppercase;margin-bottom:.35rem}
+    .panel-heading h2{font-family:Hessian,serif;letter-spacing:.13em;font-size:clamp(1.25rem,2vw,2rem);margin:0}
+    .book-badge{border:1px solid rgba(225,40,53,.4);background:rgba(162,15,25,.13);color:#ff6a74;border-radius:999px;padding:.42rem .7rem;font-size:.68rem;letter-spacing:.12em;white-space:nowrap}
+    [data-book="external"] .book-badge{border-color:rgba(199,167,106,.45);background:rgba(199,167,106,.1);color:#e4c98f}
+    .book-stage{height:570px;display:flex;align-items:center;justify-content:center;position:relative;perspective:1600px}
+    .book{visibility:hidden;filter:drop-shadow(0 24px 22px rgba(0,0,0,.7))}
+    .page{background:#171719;overflow:hidden}
+    .page-content{width:100%;height:100%;background-size:cover;background-position:center;border:1px solid rgba(255,255,255,.05)}
+    .text-page{height:100%;padding:30px 27px;color:#221d16;background:linear-gradient(90deg,rgba(0,0,0,.07),transparent 10%),repeating-linear-gradient(0deg,rgba(90,55,20,.025) 0 1px,transparent 1px 4px),#ddd0b3;font-family:Georgia,serif;position:relative}
+    .text-page:after{content:attr(data-page);position:absolute;bottom:16px;left:0;right:0;text-align:center;color:#796b54;font-size:10px}
+    .text-page h3{font-family:Hessian,Georgia,serif;color:#7e1117;text-align:center;font-size:21px;letter-spacing:.08em;margin:4px 0 18px;border-bottom:1px solid rgba(70,45,22,.3);padding-bottom:10px}
+    .text-page p{font-size:11.2px;line-height:1.48;margin:0 0 10px;text-align:justify}
+    .text-page strong{color:#671015}
+    .protocol-cover{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px;color:#eadfc6;background:radial-gradient(circle at center,rgba(162,15,25,.28),transparent 44%),linear-gradient(145deg,#171112,#050505 70%);border:8px double #5d1619}
+    .protocol-cover .route-shield{width:86px;height:96px;border:5px solid #eee;border-radius:36% 36% 48% 48%;display:flex;align-items:center;justify-content:center;font:bold 30px/1 Arial;color:#fff;margin-bottom:28px;box-shadow:inset 0 0 0 4px #151515,0 0 35px rgba(225,40,53,.28)}
+    .protocol-cover small{letter-spacing:.32em;color:var(--gold);text-transform:uppercase}
+    .protocol-cover h3{font-family:Hessian,serif;font-size:34px;letter-spacing:.12em;margin:12px 0;line-height:1.05}
+    .protocol-cover p{font:italic 13px Georgia,serif;color:#aa9f8c}
+    .back-cover{height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;background:linear-gradient(145deg,#0b0b0c,#181012);border:8px double #491316;color:#aa9f8c;font:italic 13px Georgia,serif}
+    .controls{display:flex;align-items:center;justify-content:center;gap:.7rem;padding:.4rem 0 .15rem;position:relative;z-index:4}
+    .control-btn{width:44px;height:44px;border:1px solid var(--line);border-radius:50%;color:#fff;background:#101014;cursor:pointer;font-size:1.2rem;transition:.25s ease}
+    .control-btn:hover{transform:translateY(-2px);border-color:var(--red-bright);background:rgba(162,15,25,.22);box-shadow:0 0 24px rgba(225,40,53,.18)}
+    .page-counter{min-width:96px;text-align:center;color:#888;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
+    .route-divider{position:relative;min-height:680px;display:flex;align-items:center;justify-content:center}
+    .route-divider:before,.route-divider:after{content:"";position:absolute;left:50%;width:1px;height:35%;background:linear-gradient(transparent,rgba(199,167,106,.45),transparent)}
+    .route-divider:before{top:0}.route-divider:after{bottom:0}
+    .route-sign{width:86px;height:98px;background:#111;border:5px solid #eee;border-radius:34% 34% 48% 48%;box-shadow:0 0 0 4px #151515,0 0 35px rgba(225,40,53,.2);display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-2deg);position:sticky;top:42vh}
+    .route-sign small{font-size:9px;letter-spacing:.16em}.route-sign strong{font-size:29px;line-height:1}.route-sign span{font-size:8px;color:var(--gold);letter-spacing:.1em;margin-top:5px}
+    footer{padding:2.5rem;text-align:center;border-top:1px solid rgba(255,255,255,.06);color:#444;font-size:.72rem;letter-spacing:.22em}
+    @media(max-width:1250px){.constitution-layout{grid-template-columns:1fr}.route-divider{min-height:auto;height:110px}.route-divider:before,.route-divider:after{top:50%;height:1px;width:38%;background:linear-gradient(90deg,transparent,rgba(199,167,106,.45),transparent)}.route-divider:before{left:0}.route-divider:after{left:auto;right:0}.route-sign{position:relative;top:auto}.book-stage{height:600px}}
+    @media(max-width:700px){.hero{padding-top:7rem}.hero p{line-height:1.7}.constitution-layout{width:100%;padding:0 .55rem}.book-panel{border-radius:14px;padding:.8rem .4rem}.panel-heading{padding:.4rem .5rem .8rem}.book-stage{height:500px}.book-badge{display:none}.text-page{padding:24px 21px}.text-page p{font-size:10.5px}.control-btn{width:40px;height:40px}}
+  </style>
 </head>
 <body>
-
-    <nav id="main-nav" class="scrolled">
-        <div class="container nav-content">
-            <a href="index.html" class="logo" style="color: white; text-decoration: none; font-weight: bold; letter-spacing: 2px;">SCORPION MC</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Hakkımızda</a></li>
-                <li><a href="galeri.html">Galeri</a></li>
-                <li><a href="ekip.html">Ekip</a></li>
-                <li><a href="hikaye.html">Hikaye</a></li>
-                <li><a href="thec.html">TheC</a></li>
-                <li><a href="tuzuk.html" class="active">Tüzük</a></li>
-                <li><a href="iletisim.html">İletişim</a></li>
-            </ul>
-            <div class="menu-toggle">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-    </nav>
-
-    <main>
-        <div class="gallery-header">
-            <h1 class="reveal">TÜZÜK</h1>
-            <p class="reveal">Scorpion MC Yasaları ve İlkeleri</p>
-        </div>
-
-        <div class="book-stage">
-            <div class="nav-btn" id="prev"> &lt; </div>
-            <div class="nav-btn" id="next"> &gt; </div>
-
-            <div id="book-container">
-                <!-- 1 Kapak + 8 Sayfa + Arka Kapak -->
-                <div class="page" data-density="hard"><div class="page-content" style="background-image:url('assets/cover.png')"></div></div>
-                <div class="page"><div class="page-content" style="background-image:url('assets/page1.jpg')"></div></div>
-                <div class="page"><div class="page-content" style="background-image:url('assets/page2.jpg')"></div></div>
-                <div class="page"><div class="page-content" style="background-image:url('assets/page3.jpg')"></div></div>
-                <div class="page"><div class="page-content" style="background-image:url('assets/page4.jpg')"></div></div>
-                <div class="page"><div class="page-content" style="background-image:url('assets/page5.jpg')"></div></div>
-                <div class="page"><div class="page-content" style="background-image:url('assets/page6.jpg')"></div></div>
-                <div class="page"><div class="page-content" style="background-image:url('assets/page7.jpg')"></div></div>
-                <div class="page"><div class="page-content" style="background-image:url('assets/page8.jpg')"></div></div>
-                <div class="page" data-density="hard"><div class="page-content" style="background-image:url('assets/back.png')"></div></div>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <p class="copyright">© 2026 SCORPION MC. TÜM HAKLARI SAKLIDIR.</p>
-    </footer>
-
-    <script>
-        window.onload = () => {
-            // Kitabı %15 civarı küçülttüm (470x625)
-            const pageFlip = new St.PageFlip(document.getElementById('book-container'), {
-                width: 470, 
-                height: 625,
-                size: "fixed",
-                showCover: true,
-                usePortrait: false,
-                flippingTime: 1000,
-                drawShadow: true,
-                maxShadowOpacity: 0.5
-            });
-
-            pageFlip.loadFromHTML(document.querySelectorAll('.page'));
-            document.getElementById('book-container').style.visibility = 'visible';
-
-            document.getElementById('prev').onclick = () => pageFlip.flipPrev();
-            document.getElementById('next').onclick = () => pageFlip.flipNext();
-
-            // Galeri Reveal Animasyonu
-            setTimeout(() => {
-                document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-            }, 100);
-        };
-    </script>
-    <script>
-        // Hamburger menu toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        if (menuToggle && navLinks) {
-            menuToggle.addEventListener('click', () => {
-                menuToggle.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
-            document.querySelectorAll('.nav-links a').forEach(a => {
-                a.addEventListener('click', () => {
-                    menuToggle.classList.remove('active');
-                    navLinks.classList.remove('active');
-                });
-            });
-        }
-    </script>
+  <nav id="main-nav" class="scrolled"><div class="container nav-content"><a href="index.html" class="logo">SCORPION MC</a><ul class="nav-links"><li><a href="index.html">Hakkımızda</a></li><li><a href="galeri.html">Galeri</a></li><li><a href="ekip.html">Ekip</a></li><li><a href="hikaye.html">Hikaye</a></li><li><a href="thec.html">TheC</a></li><li><a href="tuzuk.html" class="active">Tüzük</a></li><li><a href="iletisim.html">İletişim</a></li></ul><div class="menu-toggle"><span></span><span></span><span></span></div></div></nav>
+  <main>
+    <header class="hero"><p class="eyebrow">Los Santos • San Andreas</p><h1>TÜZÜK</h1><p>İç işleyiş ve kulüplerarası protokol</p></header>
+    <section class="constitution-layout" aria-label="Scorpion MC tüzük kitapları">
+      <article class="book-panel" data-book="internal">
+        <div class="panel-heading"><div><span class="panel-kicker">Kulüp üyelerine özel</span><h2>İÇ TÜZÜK</h2></div><span class="book-badge">10 SAYFA</span></div>
+        <div class="book-stage"><div class="book" id="internal-book">
+          <div class="page" data-density="hard"><div class="page-content" style="background-image:url('assets/cover.png')"></div></div>
+          <div class="page"><div class="page-content" style="background-image:url('assets/page1.jpg')"></div></div><div class="page"><div class="page-content" style="background-image:url('assets/page2.jpg')"></div></div><div class="page"><div class="page-content" style="background-image:url('assets/page3.jpg')"></div></div><div class="page"><div class="page-content" style="background-image:url('assets/page4.jpg')"></div></div><div class="page"><div class="page-content" style="background-image:url('assets/page5.jpg')"></div></div><div class="page"><div class="page-content" style="background-image:url('assets/page6.jpg')"></div></div><div class="page"><div class="page-content" style="background-image:url('assets/page7.jpg')"></div></div><div class="page"><div class="page-content" style="background-image:url('assets/page8.jpg')"></div></div>
+          <div class="page" data-density="hard"><div class="page-content" style="background-image:url('assets/back.png')"></div></div>
+        </div></div>
+        <div class="controls"><button class="control-btn" data-prev="internal" aria-label="İç tüzük önceki sayfa">‹</button><span class="page-counter" id="internal-count">1 / 10</span><button class="control-btn" data-next="internal" aria-label="İç tüzük sonraki sayfa">›</button></div>
+      </article>
+      <aside class="route-divider" aria-label="Route 68 ayıracı"><div class="route-sign"><small>ROUTE</small><strong>68</strong><span>LOS SANTOS</span></div></aside>
+      <article class="book-panel" data-book="external">
+        <div class="panel-heading"><div><span class="panel-kicker">MC / RC oluşumlarına açık</span><h2>DIŞ TÜZÜK</h2></div><span class="book-badge">10 SAYFA</span></div>
+        <div class="book-stage"><div class="book" id="external-book">
+          <div class="page" data-density="hard"><div class="protocol-cover"><div class="route-shield">68</div><small>Scorpion MC</small><h3>KULÜPLERARASI<br>PROTOKOL</h3><p>Respect • Loyalty • Brotherhood</p></div></div>
+          <div class="page"><div class="text-page" data-page="1"><h3>GENEL İLKELER</h3><p><strong>1.1</strong> SCORPION MC, San Andreas’ta faaliyet gösteren bağımsız bir Motorcycle Club’dır.</p><p><strong>1.2</strong> İlişkiler karşılıklı saygı, temsil yetkisi ve verilen sözün sorumluluğu temelinde yürütülür.</p><p><strong>1.3</strong> Hiçbir anlaşma kulübün bağımsız karar yetkisini ortadan kaldırmaz.</p><p><strong>1.4</strong> Kişisel anlaşmazlıklar, yetkili kararı olmadan kulüplerarası mesele sayılmaz.</p></div></div>
+          <div class="page"><div class="text-page" data-page="2"><h3>PATCH & COLORS</h3><p><strong>2.1</strong> Her kulübün patch, colors, isim ve sembolleri kendi kimliğidir.</p><p><strong>2.2</strong> İzinsiz kullanım, taklit veya aşağılayıcı teşhir disrespect sayılır.</p><p><strong>2.3</strong> Disrespect iddiası önce yetkili temsilciler arasında görüşülür.</p><p><strong>2.4</strong> Bir üyenin kişisel tepkisi otomatik kulüp kararı değildir.</p></div></div>
+          <div class="page"><div class="text-page" data-page="3"><h3>TERRITORY</h3><p><strong>3.1</strong> Bölgesel iddialar ve ticari alanlar RP çerçevesinde ele alınır.</p><p><strong>3.2</strong> Başka bir kulübün bilinen bölgesindeki kalıcı faaliyet önceden officer düzeyinde görüşülür.</p><p><strong>3.3</strong> Ticari anlaşmazlıklar doğrudan saldırı sebebi değildir; önce bildirim ve görüşme yapılır.</p></div></div>
+          <div class="page"><div class="text-page" data-page="4"><h3>İLETİŞİM</h3><p><strong>4.1</strong> Bağlayıcı görüşmeler President, Vice President veya yetkilendirilmiş officer tarafından yürütülür.</p><p><strong>4.2</strong> Yetkisiz üyenin sözü kulübü bağlamaz.</p><p><strong>4.3</strong> Anlaşmaların kapsamı, süresi ve sona erme şartları açıkça belirlenir.</p></div></div>
+          <div class="page"><div class="text-page" data-page="5"><h3>ZİYARETLER</h3><p><strong>5.1</strong> Clubhouse ziyareti önceden haber ve ev sahibi onayıyla gerçekleşir.</p><p><strong>5.2</strong> Misafirler ev sahibi kulübün silah, colors ve davranış kurallarına uyar.</p><p><strong>5.3</strong> Ortak sürüşte lider kulübün Road Captain’ı rota ve dizilişi açıklar.</p></div></div>
+          <div class="page"><div class="text-page" data-page="6"><h3>ANLAŞMAZLIKLAR</h3><p><strong>6.1</strong> Misillemeden önce officer’lar olay kaydını paylaşır ve çözüm toplantısı yapar.</p><p><strong>6.2</strong> Gerekirse tarafların kabul ettiği bağımsız bir MC veya RC arabulucu olabilir.</p><p><strong>6.3</strong> Çatışmalar RP sınırında kalır; OOC taciz veya gerçek tehdit kabul edilemez.</p></div></div>
+          <div class="page"><div class="text-page" data-page="7"><h3>ALLIANCE</h3><p><strong>7.1</strong> Dostluk iyi niyeti; alliance tanımlı konularda karşılıklı desteği ifade eder.</p><p><strong>7.2</strong> Yardım yükümlülüğü sınırsız değildir.</p><p><strong>7.3</strong> Uzun süreli ittifaklar yetkili temsilcilerin yazılı mutabakatıyla kurulur.</p><p><strong>7.4</strong> Ağır ihlalde anlaşma gerekçeli bildirimle sona erdirilebilir.</p></div></div>
+          <div class="page"><div class="text-page" data-page="8"><h3>SON HÜKÜMLER</h3><p><strong>8.1</strong> Bu protokol, SCORPION MC ile ilişki kuran oluşumlara kulübün dış ilişkiler esaslarını bildirir.</p><p><strong>8.2</strong> İç işleyiş, Church, aidat ve disiplin ayrıntıları bu belgenin kapsamı dışındadır.</p><p><strong>8.3</strong> Değişiklikler yetkili temsilcilere bildirilir.</p></div></div>
+          <div class="page" data-density="hard"><div class="back-cover">SCORPION MC<br><br>“Respect is earned.<br>Loyalty is returned.”</div></div>
+        </div></div>
+        <div class="controls"><button class="control-btn" data-prev="external" aria-label="Dış tüzük önceki sayfa">‹</button><span class="page-counter" id="external-count">1 / 10</span><button class="control-btn" data-next="external" aria-label="Dış tüzük sonraki sayfa">›</button></div>
+      </article>
+    </section>
+  </main>
+  <footer>© 2026 SCORPION MC. TÜM HAKLARI SAKLIDIR.</footer>
+  <script>
+    const books={};
+    function setupBook(key,id){
+      const el=document.getElementById(id);
+      const mobile=window.innerWidth<700;
+      const flip=new St.PageFlip(el,{width:mobile?270:315,height:mobile?359:419,size:'fixed',showCover:true,usePortrait:mobile,flippingTime:900,drawShadow:true,maxShadowOpacity:.55,mobileScrollSupport:true});
+      flip.loadFromHTML(el.querySelectorAll('.page')); el.style.visibility='visible'; books[key]=flip;
+      const counter=document.getElementById(key+'-count');
+      flip.on('flip',e=>counter.textContent=`${e.data+1} / 10`);
+    }
+    window.addEventListener('load',()=>{setupBook('internal','internal-book');setupBook('external','external-book');document.querySelectorAll('[data-prev]').forEach(b=>b.onclick=()=>books[b.dataset.prev].flipPrev());document.querySelectorAll('[data-next]').forEach(b=>b.onclick=()=>books[b.dataset.next].flipNext());});
+    const menuToggle=document.querySelector('.menu-toggle'),navLinks=document.querySelector('.nav-links');
+    if(menuToggle&&navLinks){menuToggle.addEventListener('click',()=>{menuToggle.classList.toggle('active');navLinks.classList.toggle('active')});navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menuToggle.classList.remove('active');navLinks.classList.remove('active')}));}
+  </script>
   <script crossorigin id="vite-legacy-polyfill" src="./assets/polyfills-legacy-XJe6vqej.js"></script>
-  <script crossorigin id="vite-legacy-entry" data-src="./assets/tuzuk-legacy-aYYHVIdB.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
   <script src="./assets/animations.js" defer></script>
 </body>
 </html>
