@@ -23,7 +23,6 @@ if not exist ".git" (
 
 rem Bu site her zaman scorpion-mc GitHub hesabini kullanir.
 git config --local credential.https://github.com.username scorpion-mc
-git config --local credential.useHttpPath true
 
 echo [1/4] Degisiklikler hazirlaniyor...
 git add -A
