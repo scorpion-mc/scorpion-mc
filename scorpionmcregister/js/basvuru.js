@@ -127,7 +127,7 @@ form.addEventListener('submit', async (e) => {
           url: "attachment://screenshot.png"
         },
         footer: {
-          text: "Angels Hood MC Başvuru Sistemi",
+          text: "Scorpion MC Başvuru Sistemi",
         },
         timestamp: new Date().toISOString()
       };

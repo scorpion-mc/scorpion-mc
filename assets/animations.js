@@ -1,5 +1,5 @@
 ﻿/* =============================================
-   ANGELS HOOD MC — Premium Interactive Animations
+   SCORPION MC — Premium Interactive Animations
    Mouse glow, staggered reveals, page transitions
    ============================================= */
 
@@ -9,7 +9,7 @@
     // ---- Page Loader ----
     const loader = document.createElement('div');
     loader.className = 'page-loader';
-    loader.innerHTML = '<div class="loader-logo">ANGELS HOOD MC</div>';
+    loader.innerHTML = '<div class="loader-logo">SCORPION MC</div>';
     document.body.prepend(loader);
 
     window.addEventListener('load', () => {

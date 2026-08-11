@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Galeri Yönetimi | Angels Hood MC</title>
+  <title>Galeri Yönetimi | Scorpion MC</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
@@ -207,7 +207,7 @@
 <!-- LOGIN -->
 <div id="login-screen">
   <div class="login-box">
-    <div class="login-logo">ANGELS HOOD</div>
+    <div class="login-logo">SCORPION MC</div>
     <p class="login-sub">GALERİ YÖNETİMİ</p>
     <input class="login-input" type="password" id="pass-input" placeholder="••••••••">
     <button class="login-btn" onclick="doLogin()">GİRİŞ YAP</button>
@@ -725,7 +725,7 @@
         const fd = new FormData();
         fd.append('file', item.file);
         fd.append('upload_preset', CFG.preset);
-        fd.append('folder', 'angels hoodmc');
+        fd.append('folder', 'scorpionmc');
         const res = await fetch(`https://api.cloudinary.com/v1_1/${CFG.cloud}/image/upload`, { method: 'POST', body: fd });
         const data = await res.json();
         if (!data.secure_url) throw new Error('Cloudinary hatası: ' + (data.error?.message || 'Bilinmeyen'));
