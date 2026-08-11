@@ -1,0 +1,55 @@
+/* Shared top navigation dimensions for every primary page. */
+nav#main-nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+  width: 100%;
+  height: 76px;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.82);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(14px);
+}
+
+nav#main-nav .nav-content {
+  width: 100%;
+  max-width: 1400px;
+  height: 76px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav#main-nav .logo {
+  font-size: 2rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+nav#main-nav .nav-links {
+  align-items: center;
+  margin: 0;
+}
+
+nav#main-nav .nav-links a {
+  line-height: 1;
+}
+
+@media (max-width: 900px) {
+  nav#main-nav,
+  nav#main-nav .nav-content {
+    height: 68px;
+  }
+
+  nav#main-nav .nav-content {
+    padding: 0 1.4rem;
+  }
+
+  nav#main-nav .logo {
+    font-size: 1.65rem;
+  }
+}
