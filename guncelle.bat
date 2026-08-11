@@ -1,44 +1,61 @@
-﻿@echo off
-chcp 65001 > nul
-echo =======================================
-echo   SCORPION MC - GITHUB GUNCELLEYICI
-echo =======================================
+@echo off
+setlocal
+chcp 65001 >nul
+title SCORPION MC - Siteyi Yayinla
+cd /d "%~dp0"
+
+echo ==============================================
+echo       SCORPION MC - SITEYI YAYINLA
+echo ==============================================
 echo.
 
-echo [1/5] GitHub'daki son degisiklikler kontrol ediliyor...
-echo (Ozellikle Admin panelinden yuklenen fotograflar aliniyor)
-git pull origin main
-
-echo.
-set /p commit_msg="Yapilan degisikligi kisaca yazin (ornegin: iletisim butonu eklendi): "
-
-if "%commit_msg%"=="" (
-    set commit_msg=Guncelleme %date% %time%
+where git >nul 2>&1
+if errorlevel 1 (
+    echo [HATA] Git bilgisayarda bulunamadi.
+    goto :failed
 )
 
-echo.
-echo [2/5] Degisiklikler ekleniyor...
-git add .
+if not exist ".git" (
+    echo [HATA] Bu dosya site klasorunun icinde degil.
+    goto :failed
+)
 
-echo [3/5] Degisiklikler kaydediliyor...
-git commit -m "%commit_msg%"
+echo [1/4] Degisiklikler hazirlaniyor...
+git add -A
+if errorlevel 1 goto :failed
 
-echo [4/5] Son bir senkronizasyon yapiliyor...
-git pull --rebase origin main
-
-echo [5/5] Siteniz GitHub'a gonderiliyor...
-git push origin main
-
-echo.
-if %errorlevel% neq 0 (
-    echo.
-    echo [!] BIR HATA OLUSTU! 
-    echo Muhtemelen galeri verileriyle ilgili bir cakisma var.
-    echo Lutfen bu pencereyi kapatip tekrar 'guncelle.bat' calistirin.
+git diff --cached --quiet
+if errorlevel 1 (
+    echo [2/4] Degisiklikler kaydediliyor...
+    git commit -m "Site guncellemesi %date% %time%"
+    if errorlevel 1 goto :failed
 ) else (
-    echo =======================================
-    echo ISLEM TAMAMLANDI! Siteniz guncellendi.
-    echo =======================================
+    echo [2/4] Kaydedilecek yeni degisiklik bulunamadi.
 )
 
+echo [3/4] GitHub ile senkronize ediliyor...
+git pull --rebase origin main
+if errorlevel 1 goto :failed
+
+echo [4/4] Site GitHub'a gonderiliyor...
+git push origin main
+if errorlevel 1 goto :failed
+
+echo.
+echo ==============================================
+echo BASARILI! Degisiklikler GitHub'a gonderildi.
+echo Site genellikle 1-2 dakika icinde yenilenir.
+echo ==============================================
+echo.
 pause
+exit /b 0
+
+:failed
+echo.
+echo ==============================================
+echo ISLEM TAMAMLANAMADI.
+echo Yukaridaki hata mesajinin ekran goruntusunu al.
+echo ==============================================
+echo.
+pause
+exit /b 1
