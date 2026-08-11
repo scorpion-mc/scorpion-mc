@@ -1,6 +1,6 @@
 /* Shared top navigation dimensions for every primary page. */
 nav#main-nav {
-  box-sizing: border-box;
+  box-sizing: border-box !important;
   position: fixed;
   inset: 0 0 auto;
   z-index: 1000;
@@ -17,7 +17,7 @@ nav#main-nav {
 }
 
 nav#main-nav .nav-content {
-  box-sizing: border-box;
+  box-sizing: border-box !important;
   width: 100%;
   max-width: 1400px !important;
   height: 75px !important;
