@@ -295,7 +295,7 @@
             // 2. Yerel dosya başarısız olduysa veya veri bulunamadıysa GitHub CDN/Raw adresinden çek
             if (!data) {
                 try {
-                    const res = await fetch('https://raw.githubusercontent.com/noldorinteam/hood-angels-mc/main/assets/gallery_data.json?t=' + Date.now());
+                    const res = await fetch('https://raw.githubusercontent.com/scorpion-mc/scorpion-mc/main/assets/gallery_data.json?t=' + Date.now());
                     if (!res.ok) throw new Error('GitHub JSON okunamadı');
                     data = await res.json();
                 } catch (e) {
