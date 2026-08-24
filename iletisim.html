@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
-<head>
+<head><link rel="icon" type="image/png" href="./assets/scorpion-cross.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İletişim | Scorpion MC</title>
+    <title>Iletisim | Scorpion MC</title><link rel="stylesheet" href="./assets/premium.css?v=1">
     <style>
         body {
             background-color: #000;
@@ -52,10 +52,52 @@
         }
 
         .contact-icon {
-            font-size: 4rem;
+            width: 118px;
+            height: 118px;
             margin-bottom: 2rem;
-            color: white;
-            opacity: 0.8;
+            display: grid;
+            place-items: center;
+            position: relative;
+            border: 1px solid rgba(255, 42, 56, 0.42);
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(200, 16, 30, 0.14), rgba(255,255,255,0.025) 62%, transparent 64%);
+            box-shadow: inset 0 0 24px rgba(200, 16, 30, 0.08), 0 0 30px rgba(200, 16, 30, 0.08);
+            opacity: 1;
+        }
+
+        .contact-icon::before,
+        .contact-icon::after {
+            content: '';
+            position: absolute;
+            inset: 7px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+
+        .contact-icon::after {
+            inset: -5px;
+            border-color: transparent rgba(255, 42, 56, 0.25);
+            transform: rotate(35deg);
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .contact-icon img {
+            width: 96px;
+            height: 96px;
+            object-fit: contain;
+            filter: grayscale(1) brightness(1.18) contrast(1.18) drop-shadow(0 7px 12px rgba(0,0,0,0.8));
+            transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), filter 0.55s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-card:hover .contact-icon::after {
+            transform: rotate(155deg);
+        }
+
+        .contact-card:hover .contact-icon img {
+            transform: scale(1.08);
+            filter: grayscale(0.3) brightness(1.35) contrast(1.2) drop-shadow(0 7px 16px rgba(200,16,30,0.35));
         }
 
         .contact-card h3 {
@@ -113,13 +155,13 @@
         <div class="container nav-content">
             <a href="index.html" class="logo">SCORPION MC</a>
             <ul class="nav-links">
-                <li><a href="index.html">Hakkımızda</a></li>
+                <li><a href="index.html">Hakkimizda</a></li>
                 <li><a href="galeri.html">Galeri</a></li>
-                <li><a href="ekip.html">Kulüp</a></li>
+                <li><a href="ekip.html">Kulup</a></li>
                 <li><a href="hikaye.html">Hikaye</a></li>
                 <li><a href="thec.html">TheC</a></li>
-                <li><a href="tuzuk.html">Tüzük</a></li>
-                <li><a href="iletisim.html" class="active">İletişim</a></li>
+                <li><a href="tuzuk.html">Tuzuk</a></li>
+                <li><a href="iletisim.html" class="active">Iletisim</a></li>
             </ul>
             <div class="menu-toggle">
                 <span></span><span></span><span></span>
@@ -129,20 +171,20 @@
 
     <main class="container">
         <div class="contact-header">
-            <h1 class="reveal">BAŞVURU & İLETİŞİM</h1>
-            <p class="reveal">Kardeşliğe Adım At</p>
+            <h1 class="reveal">BASVURU & ILETISIM</h1>
+            <p class="reveal">Kardeslige Adim At</p>
         </div>
 
         <div class="contact-grid">
             <div class="contact-card reveal">
-                <div class="contact-icon">� </div>
+                <div class="contact-icon"><img src="assets/scorpion-cross.png" alt="Scorpion MC akrep armasi"></div>
                 <h3>DISCORD</h3>
-                <p>Kardeşliğimizin bir parçası olmak ve başvuruda bulunmak için resmi Discord sunucumuza katılabilirsiniz.</p>
+                <p>Kardesligimizin bir parcasi olmak ve basvuruda bulunmak icin resmi Discord sunucumuza katilabilirsiniz.</p>
                 <a href="https://discord.gg/KXA5dkQ6KN" class="btn-primary">KATIL</a>
             </div>
 
             <div class="contact-card reveal">
-                <div class="contact-icon">� </div>
+                <div class="contact-icon"><img src="assets/scorpion-cross.png" alt="Scorpion MC akrep armasi"></div>
                 <h3>SOSYAL MEDYA</h3>
                 <p>SOON</p>
                 <ul class="social-list">
@@ -153,10 +195,10 @@
             </div>
 
             <div class="contact-card reveal">
-                <div class="contact-icon">� </div>
-                <h3>SİSTEM BAŞVURUSU</h3>
-                <p>Sistemimiz üzerinden başvurunuzu oluşturabilir ve hemen bize iletebilirsiniz.</p>
-                <a href="https://scorpion-mc.github.io/scorpionmcregister/" target="_blank" class="btn-primary">BAŞVURU YAP</a>
+                <div class="contact-icon"><img src="assets/scorpion-cross.png" alt="Scorpion MC akrep armasi"></div>
+                <h3>SISTEM BASVURUSU</h3>
+                <p>Sistemimiz uzerinden basvurunuzu olusturabilir ve hemen bize iletebilirsiniz.</p>
+                <a href="https://scorpion-mc.github.io/scorpionmcregister/" target="_blank" class="btn-primary">BASVURU YAP</a>
             </div>
         </div>
     </main>
@@ -164,7 +206,7 @@
     <footer>
         <div class="container">
             <div class="footer-logo brand-font">SCORPION MC</div>
-            <p class="copyright">© 2025 SCORPION MC. TÜM HAKLARI SAKLIDIR.</p>
+            <p class="copyright">© 2025 SCORPION MC. TUM HAKLARI SAKLIDIR.</p>
         </div>
     </footer>
 
@@ -181,6 +223,6 @@
     </script>
   <script crossorigin id="vite-legacy-polyfill" src="./assets/polyfills-legacy-XJe6vqej.js"></script>
   <script crossorigin id="vite-legacy-entry" data-src="./assets/iletisim-legacy-DTP-4GJS.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
-  <script src="./assets/animations.js" defer></script>
+  <script src="./assets/animations.js" defer></script><script src="./assets/premium.js" defer></script>
 </body>
 </html>

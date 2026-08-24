@@ -1,65 +1,74 @@
 @echo off
 setlocal
-chcp 65001 >nul
-title SCORPION MC - Siteyi Yayinla
+title SCORPION MC - GitHub Site Guncelleme
 cd /d "%~dp0"
-set "GCM_INTERACTIVE=never"
 
-echo ==============================================
-echo       SCORPION MC - SITEYI YAYINLA
-echo ==============================================
+echo.
+echo ==================================================
+echo        SCORPION MC SITE GUNCELLEME
+echo ==================================================
 echo.
 
-where git >nul 2>&1
+where git >nul 2>nul
 if errorlevel 1 (
-    echo [HATA] Git bilgisayarda bulunamadi.
-    goto :failed
+  echo HATA: Git bulunamadi. Once Git for Windows kurulmali.
+  pause
+  exit /b 1
 )
 
 if not exist ".git" (
-    echo [HATA] Bu dosya site klasorunun icinde degil.
-    goto :failed
+  echo HATA: Bu klasor GitHub deposuna bagli degil.
+  echo Lutfen SITE SKAL klasorundeki bu dosyayi calistirin.
+  pause
+  exit /b 1
 )
 
-rem Bu site her zaman scorpion-mc GitHub hesabini kullanir.
-git config --local credential.https://github.com.username scorpion-mc
-
-echo [1/4] Degisiklikler hazirlaniyor...
-git add -A
-if errorlevel 1 goto :failed
+echo Site dosyalari hazirlaniyor...
+git add -- "*.html" "favicon.svg" "icons.svg" "README.md" ".htaccess" ".gitignore" "guncelle.bat"
+git add -- "assets/*.css" "assets/*.js" "assets/*.json" "assets/*.png" "assets/*.webp" "assets/*.jpg" "assets/*.mp3" "assets/*.mp4" "assets/*.otf" "assets/*.glb"
 
 git diff --cached --quiet
-if errorlevel 1 (
-    echo [2/4] Degisiklikler kaydediliyor...
-    git commit -m "Site guncellemesi %date% %time%"
-    if errorlevel 1 goto :failed
-) else (
-    echo [2/4] Kaydedilecek yeni degisiklik bulunamadi.
+if not errorlevel 1 (
+  echo.
+  echo Yeni bir degisiklik bulunamadi. Site zaten guncel.
+  pause
+  exit /b 0
 )
 
-echo [3/4] GitHub ile senkronize ediliyor...
-git pull --rebase origin main
-if errorlevel 1 goto :failed
+set "COMMIT_MESSAGE=Site guncellemesi %date% %time%"
+echo Degisiklikler kaydediliyor...
+git commit -m "%COMMIT_MESSAGE%"
+if errorlevel 1 goto :error
 
-echo [4/4] Site GitHub'a gonderiliyor...
+echo GitHub uzerindeki son durum aliniyor...
+git pull --rebase origin main
+if errorlevel 1 (
+  echo.
+  echo HATA: GitHub ile birlestirme tamamlanamadi.
+  echo Dosyalarda cakisma olabilir. Hicbir dosya silinmedi.
+  echo Yardim almadan tekrar calistirmayin.
+  pause
+  exit /b 1
+)
+
+echo Site GitHub'a gonderiliyor...
 git push origin main
-if errorlevel 1 goto :failed
+if errorlevel 1 goto :error
 
 echo.
-echo ==============================================
-echo BASARILI! Degisiklikler GitHub'a gonderildi.
-echo Site genellikle 1-2 dakika icinde yenilenir.
-echo ==============================================
+echo ==================================================
+echo BASARILI: Site GitHub'a gonderildi.
+echo GitHub Pages ve bagli domain genellikle 1-5 dakika
+echo icinde otomatik olarak guncellenir.
+echo ==================================================
 echo.
 pause
 exit /b 0
 
-:failed
+:error
 echo.
-echo ==============================================
-echo ISLEM TAMAMLANAMADI.
-echo Yukaridaki hata mesajinin ekran goruntusunu al.
-echo ==============================================
-echo.
+echo HATA: Islem tamamlanamadi.
+echo GitHub oturumu, internet baglantisi veya yetkiyi kontrol edin.
+echo Site dosyalariniz silinmedi.
 pause
 exit /b 1

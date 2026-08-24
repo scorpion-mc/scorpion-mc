@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
-<head>
+<head><link rel="icon" type="image/png" href="./assets/scorpion-cross.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeri | Scorpion MC</title>
+    <title>Galeri | Scorpion MC</title><link rel="stylesheet" href="./assets/premium.css?v=1">
     <link rel="stylesheet" href="./assets/mobile.css">
     <link rel="stylesheet" href="./assets/animations.css">
     <style>
@@ -130,7 +130,7 @@
         }
 
         .gallery-item::after {
-            content: 'GÖRÜNTÜLE';
+            content: 'GORUNTULE';
             position: absolute;
             top: 50%;
             left: 50%;
@@ -235,25 +235,25 @@
         <div class="nav-content">
             <a href="index.html" class="logo">SCORPION MC</a>
             <ul class="nav-links">
-                <li><a href="index.html">Hakkımızda</a></li>
+                <li><a href="index.html">Hakkimizda</a></li>
                 <li><a href="galeri.html" class="active">Galeri</a></li>
-                <li><a href="ekip.html">Kulüp</a></li>
+                <li><a href="ekip.html">Kulup</a></li>
                 <li><a href="hikaye.html">Hikaye</a></li>
                 <li><a href="thec.html">TheC</a></li>
-                <li><a href="tuzuk.html">Tüzük</a></li>
-                <li><a href="iletisim.html">İletişim</a></li>
+                <li><a href="tuzuk.html">Tuzuk</a></li>
+                <li><a href="iletisim.html">Iletisim</a></li>
             </ul>
         </div>
     </nav>
 
     <main>
         <div class="gallery-header">
-            <h1 class="reveal">GALERİ</h1>
-            <p class="reveal">Karanlık Sokaklardan Kareler</p>
+            <h1 class="reveal">GALERI</h1>
+            <p class="reveal">Karanlik Sokaklardan Kareler</p>
         </div>
 
         <div class="gallery-container" id="gallery-wrapper">
-            <!-- Fotoğraflar JS ile yüklenecek -->
+            <!-- Fotograflar JS ile yuklenecek -->
         </div>  
     </main>
 
@@ -275,7 +275,7 @@
 
     <footer style="padding: 5rem 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
         <div class="footer-logo" style="font-family:'Hessian',serif; font-size: 2rem; letter-spacing: 10px; margin-bottom: 1rem;">SCORPION MC</div>
-        <p style="color: #444; font-size: 0.7rem; letter-spacing: 3px;">© 2025 SCORPION MC. TÜM HAKLARI SAKLIDIR.</p>
+        <p style="color: #444; font-size: 0.7rem; letter-spacing: 3px;">© 2025 SCORPION MC. TUM HAKLARI SAKLIDIR.</p>
     </footer>
 
     <script>
@@ -283,25 +283,14 @@
             const wrapper = document.getElementById('gallery-wrapper');
             let data = null;
             
-            // 1. Yerel JSON dosyasını çekmeye çalış (anlık güncelleme için)
+            // 1. Yerel JSON dosyasini cekmeye calis (anlik guncelleme icin)
             try {
                 const res = await fetch('./assets/gallery_data.json?t=' + Date.now());
                 if (res.ok) {
                     data = await res.json();
                 }
             } catch (e) {
-                console.warn('Yerel galeri verisi yüklenemedi, GitHub yedek bağlantısı deneniyor:', e);
-            }
-
-            // 2. Yerel dosya başarısız olduysa veya veri bulunamadıysa GitHub CDN/Raw adresinden çek
-            if (!data) {
-                try {
-                    const res = await fetch('https://raw.githubusercontent.com/scorpion-mc/scorpion-mc/main/assets/gallery_data.json?t=' + Date.now());
-                    if (!res.ok) throw new Error('GitHub JSON okunamadı');
-                    data = await res.json();
-                } catch (e) {
-                    console.error('GitHub yedek bağlantısı da başarısız oldu:', e);
-                }
+                console.warn('Yerel galeri verisi yuklenemedi:', e);
             }
 
             // 3. Verileri ekrana render et
@@ -315,7 +304,7 @@
                     wrapper.appendChild(div);
                 });
             } else {
-                wrapper.innerHTML = '<p style="color:#555;text-align:center;padding:4rem;letter-spacing:2px">Fotoğraflar yüklenemedi.</p>';
+                wrapper.innerHTML = '<p style="color:#555;text-align:center;padding:4rem;letter-spacing:2px">Fotograflar yuklenemedi.</p>';
             }
             
             const obs = new IntersectionObserver(entries => {
@@ -353,6 +342,6 @@
         loadGallery();
         checkAdmin();
     </script>
-    <script src="./assets/animations.js" defer></script>
+    <script src="./assets/animations.js" defer></script><script src="./assets/premium.js" defer></script>
 </body>
 </html>
