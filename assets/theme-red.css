@@ -98,6 +98,37 @@ nav#main-nav .nav-links a::after { background:var(--mc-red-bright) !important;bo
   transform:translate(-50%,-50%) !important;
 }
 .flag-wave-audio { display:none; }
+
+/* Bütün sayfalarda kullanılan sabit müzik kontrolü */
+.site-music-audio { display:none; }
+.music-toggle {
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:15000;
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  padding:0;
+  border:1px solid rgba(239,38,56,.48);
+  border-radius:50%;
+  background:rgba(5,5,5,.78);
+  color:#fff;
+  box-shadow:0 12px 34px rgba(0,0,0,.55),0 0 20px rgba(180,15,29,.13);
+  backdrop-filter:blur(14px);
+  cursor:pointer;
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.music-toggle:hover { transform:translateY(-3px);border-color:var(--mc-red-bright);box-shadow:0 15px 38px rgba(0,0,0,.62),0 0 24px rgba(239,38,56,.24); }
+.music-toggle:focus-visible { outline:2px solid var(--mc-red-bright);outline-offset:4px; }
+.music-play-icon { width:0;height:0;margin-left:3px;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:11px solid #fff; }
+.music-pause-icon { display:none;align-items:center;gap:4px;height:15px; }
+.music-pause-icon i { display:block;width:3px;height:15px;background:#fff;border-radius:2px; }
+.music-toggle.is-playing .music-play-icon { display:none; }
+.music-toggle.is-playing .music-pause-icon { display:flex; }
+.music-toggle.is-playing::after { content:"";position:absolute;inset:4px;border:1px solid rgba(239,38,56,.3);border-radius:50%;animation:musicPulse 1.8s ease-in-out infinite; }
+@keyframes musicPulse { 50%{transform:scale(1.12);opacity:.25} }
 .hero-emblem {
   align-self:center;
   width:min(100%,430px) !important;
@@ -121,4 +152,4 @@ nav#main-nav .nav-links a::after { background:var(--mc-red-bright) !important;bo
 .hero-statline,.hero-stat { display:none !important; }
 
 img { content-visibility:auto; }
-@media(max-width:700px){.hero-title{letter-spacing:.035em !important}.mc-intro .intro-video{width:100vw !important;height:auto !important;object-fit:contain !important}}
+@media(max-width:700px){.hero-title{letter-spacing:.035em !important}.mc-intro .intro-video{width:100vw !important;height:auto !important;object-fit:contain !important}.music-toggle{right:14px;bottom:14px;width:44px;height:44px}}
