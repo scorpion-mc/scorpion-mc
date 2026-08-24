@@ -21,9 +21,7 @@
 }
 
 html, body { background:#030303 !important; color:#f3f0e8; }
-body, body p, body a, body span, body small, body button, body input, body textarea {
-  font-family: Inter, Arial, Helvetica, sans-serif;
-}
+body, body * { font-family:"Pirata One",Georgia,serif !important;font-weight:400; }
 
 /* Hessian karakterine yakın, daha ince ve Türkçe glifleri eksiksiz bir font. */
 body .logo, body .brand-font, body .footer-logo,
@@ -99,29 +97,6 @@ nav#main-nav .nav-links a::after { background:var(--mc-red-bright) !important;bo
   filter:none !important;
   transform:translate(-50%,-50%) !important;
 }
-.intro-sound {
-  position:absolute;
-  left:50%;
-  bottom:24px;
-  z-index:4;
-  display:flex;
-  align-items:center;
-  gap:.65rem;
-  padding:.72rem 1rem;
-  border:1px solid rgba(255,255,255,.28);
-  border-radius:999px;
-  background:rgba(0,0,0,.58);
-  color:#fff;
-  font:600 .65rem/1 Inter,Arial,sans-serif;
-  letter-spacing:.18em;
-  backdrop-filter:blur(12px);
-  transform:translateX(-50%);
-  cursor:pointer;
-  transition:.25s ease;
-}
-.intro-sound span { width:7px;height:7px;border-radius:50%;background:var(--mc-red-bright);box-shadow:0 0 12px var(--mc-red-bright); }
-.intro-sound:hover { border-color:var(--mc-red-bright);background:rgba(20,0,2,.78); }
-.intro-sound.is-on { opacity:0;visibility:hidden;pointer-events:none; }
 .flag-wave-audio { display:none; }
 .hero-emblem {
   align-self:center;
@@ -146,4 +121,4 @@ nav#main-nav .nav-links a::after { background:var(--mc-red-bright) !important;bo
 .hero-statline,.hero-stat { display:none !important; }
 
 img { content-visibility:auto; }
-@media(max-width:700px){.hero-title{letter-spacing:.035em !important}.mc-intro .intro-video{width:100vw !important;height:auto !important;object-fit:contain !important}.intro-sound{bottom:18px}}
+@media(max-width:700px){.hero-title{letter-spacing:.035em !important}.mc-intro .intro-video{width:100vw !important;height:auto !important;object-fit:contain !important}}
