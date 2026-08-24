@@ -8,6 +8,9 @@
   const startSound=()=>{
     if(!flagAudio)return;
     flagAudio.volume=.48;
+    if(Number.isFinite(video.duration) && video.duration>0){
+      flagAudio.currentTime=Math.min(video.currentTime,Math.max(0,flagAudio.duration-.05));
+    }
     flagAudio.play().catch(()=>{});
   };
   const finish=()=>{

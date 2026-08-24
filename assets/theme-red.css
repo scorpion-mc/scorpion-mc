@@ -1,9 +1,9 @@
 /* Scorpion MC — siyah/kırmızı tema, Türkçe karakter destekli motorcu tipografisi */
 @font-face {
-  font-family:"Pirata One";
-  src:url("PirataOne-Regular.ttf") format("truetype");
+  font-family:"Grenze";
+  src:url("Grenze-Variable.ttf") format("truetype");
   font-style:normal;
-  font-weight:400;
+  font-weight:100 900;
   font-display:swap;
 }
 :root {
@@ -21,9 +21,9 @@
 }
 
 html, body { background:#030303 !important; color:#f3f0e8; }
-body, body * { font-family:"Pirata One",Georgia,serif !important;font-weight:400; }
+body, body * { font-family:"Grenze",Georgia,serif !important;font-weight:400; }
 
-/* Hessian karakterine yakın, daha ince ve Türkçe glifleri eksiksiz bir font. */
+/* Hessian karakterine yakın, dengeli ve Türkçe glifleri eksiksiz bir font. */
 body .logo, body .brand-font, body .footer-logo,
 body h1, body h2, body h3, body h4,
 body .hero-title, body .hero-stat strong,
@@ -34,10 +34,10 @@ body .panel-heading h2, body .text-page h3,
 body .protocol-cover h3, body .legacy-quote blockquote,
 body .page-loader .loader-logo,
 body .home-section::before {
-  font-family:"Pirata One",Georgia,serif !important;
-  font-weight:400 !important;
+  font-family:"Grenze",Georgia,serif !important;
+  font-weight:500 !important;
   font-stretch:normal;
-  letter-spacing:.055em;
+  letter-spacing:.045em;
 }
 
 body::after { background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(180,15,29,.11),transparent 23rem) !important; }
