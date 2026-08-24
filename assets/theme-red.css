@@ -76,8 +76,27 @@ nav#main-nav .nav-links a::after { background:var(--mc-red-bright) !important;bo
   object-position:center center !important;
   background:#000 !important;
 }
-.hero-emblem { align-self:center; }
-.hero-emblem img { width:100% !important;height:auto !important;aspect-ratio:1/1;object-fit:contain !important; }
+.hero-emblem {
+  align-self:center;
+  width:min(100%,430px) !important;
+  padding:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  backdrop-filter:none !important;
+  overflow:visible !important;
+}
+.hero-emblem::before,.hero-emblem::after { display:none !important;content:none !important; }
+.hero-emblem img {
+  display:block;
+  width:100% !important;
+  height:auto !important;
+  aspect-ratio:1/1;
+  object-fit:contain !important;
+  background:transparent !important;
+  filter:drop-shadow(0 20px 28px rgba(0,0,0,.8)) drop-shadow(0 0 12px rgba(180,15,29,.2)) !important;
+}
+.hero-statline,.hero-stat { display:none !important; }
 
 img { content-visibility:auto; }
 @media(max-width:700px){.hero-title{letter-spacing:.015em !important}.mc-intro .intro-video{object-fit:contain !important}}
