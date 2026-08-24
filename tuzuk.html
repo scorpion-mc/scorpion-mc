@@ -3,7 +3,7 @@
 <head><link rel="icon" type="image/png" href="./assets/scorpion-cross.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Scorpion MC ic tuzugu ve kuluplerarasi dis protokolu.">
+  <meta name="description" content="Scorpion MC iç tüzüğü ve kulüpler arası dış protokolü.">
   <title>Tüzük | Scorpion MC</title><link rel="stylesheet" href="./assets/premium.css?v=2"><link rel="stylesheet" href="./assets/theme-yellow.css?v=1">
   <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/style-legacy-toXfV2aB.js">
@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="./assets/animations.css">
   <link rel="stylesheet" href="./assets/nav-unified.css?v=2">
   <style>
-    @font-face{font-family:Hessian;src:url('assets/Hessian.otf') format('opentype');font-display:swap}
     :root{--red:#a20f19;--red-bright:#e12835;--gold:#c7a76a;--ink:#ddd4c2;--panel:#0b0b0d;--line:rgba(255,255,255,.12)}
     *{box-sizing:border-box}
     body{margin:0;min-height:100vh;color:#fff;background:#020203;font-family:Inter,Arial,sans-serif;overflow-x:hidden}
@@ -19,33 +18,33 @@
     .container{max-width:1400px;margin:0 auto;padding:0 4rem}
     nav{position:fixed;inset:0 0 auto;z-index:1000;padding:1.2rem 0;background:rgba(0,0,0,.82);border-bottom:1px solid rgba(255,255,255,.07);backdrop-filter:blur(14px)}
     .nav-content{display:flex;align-items:center;justify-content:space-between}
-    .logo{font-family:Hessian,serif;color:#fff;text-decoration:none;letter-spacing:.12em;font-size:2rem}
+    .logo{font-family:Impact,"Arial Black","Bahnschrift Condensed",Arial,sans-serif;color:#fff;text-decoration:none;letter-spacing:.12em;font-size:2rem}
     .nav-links{display:flex;gap:2.4rem;list-style:none;margin:0;padding:0}
     .nav-links a{color:#888;text-decoration:none;text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;transition:.25s}
     .nav-links a:hover,.nav-links a.active{color:#fff}
     .menu-toggle{display:none;flex-direction:column;gap:7px;cursor:pointer}.menu-toggle span{display:block;width:28px;height:2px;background:#fff}
     .hero{text-align:center;padding:8.5rem 1.5rem 1.35rem;position:relative}
-    .hero h1{font-family:Hessian,Georgia,serif;font-weight:400;font-size:clamp(3.8rem,7vw,6.8rem);letter-spacing:.16em;margin:0;line-height:1.08;text-indent:.16em;text-shadow:0 0 42px rgba(225,40,53,.24)}
+    .hero h1{font-family:Impact,"Arial Black","Bahnschrift Condensed",Arial,sans-serif;font-weight:700;font-size:clamp(3.8rem,7vw,6.8rem);letter-spacing:.16em;margin:0;line-height:1.08;text-indent:.16em;text-shadow:0 0 42px rgba(245,196,0,.24)}
     .hero p{color:#8d8d92;letter-spacing:.18em;text-transform:uppercase;font-size:.82rem;margin:1.5rem 0 0}
     .hero .eyebrow{color:var(--red-bright);letter-spacing:.38em;font-weight:700;font-size:.72rem;text-transform:uppercase;margin:0 0 1.65rem}
     .constitution-layout{width:min(1180px,96vw);margin:1.5rem auto 7rem;display:grid;grid-template-columns:1fr;gap:7rem;align-items:start}
     .book-panel{position:relative;width:100%;min-width:0;background:transparent;border:0;padding:0;overflow:visible}
     .panel-heading{display:flex;align-items:end;justify-content:center;padding:0 1rem 1.25rem;position:relative;z-index:2;text-align:center}
     .panel-kicker{display:block;color:#777;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;margin-bottom:.55rem}
-    .panel-heading h2{font-family:Hessian,serif;letter-spacing:.15em;font-size:clamp(2rem,3vw,3.15rem);margin:0;text-indent:.15em;text-shadow:0 0 28px rgba(225,40,53,.16)}
+    .panel-heading h2{font-family:Impact,"Arial Black","Bahnschrift Condensed",Arial,sans-serif;letter-spacing:.15em;font-size:clamp(2rem,3vw,3.15rem);margin:0;text-indent:.15em;text-shadow:0 0 28px rgba(245,196,0,.16)}
     .book-stage{height:720px;display:flex;align-items:flex-start;justify-content:center;position:relative;perspective:2000px;padding-top:8px}
     .book{visibility:hidden;filter:drop-shadow(0 24px 22px rgba(0,0,0,.7));transform:translateX(-25%)}
     .page{background:#171719;overflow:hidden}
     .page-content{width:100%;height:100%;background-size:cover;background-position:center;border:1px solid rgba(255,255,255,.05)}
     .text-page{height:100%;padding:30px 27px;color:#221d16;background:linear-gradient(90deg,rgba(0,0,0,.07),transparent 10%),repeating-linear-gradient(0deg,rgba(90,55,20,.025) 0 1px,transparent 1px 4px),#ddd0b3;font-family:Georgia,serif;position:relative}
     .text-page:after{content:attr(data-page);position:absolute;bottom:16px;left:0;right:0;text-align:center;color:#796b54;font-size:10px}
-    .text-page h3{font-family:Hessian,Georgia,serif;color:#7e1117;text-align:center;font-size:21px;letter-spacing:.08em;margin:4px 0 18px;border-bottom:1px solid rgba(70,45,22,.3);padding-bottom:10px}
+    .text-page h3{font-family:Impact,"Arial Black","Bahnschrift Condensed",Arial,sans-serif;color:#806600;text-align:center;font-size:21px;letter-spacing:.08em;margin:4px 0 18px;border-bottom:1px solid rgba(70,45,22,.3);padding-bottom:10px}
     .text-page p{font-size:11.2px;line-height:1.48;margin:0 0 10px;text-align:justify}
     .text-page strong{color:#671015}
     .protocol-cover{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px;color:#eadfc6;background:radial-gradient(circle at center,rgba(162,15,25,.28),transparent 44%),linear-gradient(145deg,#171112,#050505 70%);border:8px double #5d1619}
     .protocol-cover .route-shield{width:86px;height:96px;border:5px solid #eee;border-radius:36% 36% 48% 48%;display:flex;align-items:center;justify-content:center;font:bold 30px/1 Arial;color:#fff;margin-bottom:28px;box-shadow:inset 0 0 0 4px #151515,0 0 35px rgba(225,40,53,.28)}
     .protocol-cover small{letter-spacing:.32em;color:var(--gold);text-transform:uppercase}
-    .protocol-cover h3{font-family:Hessian,serif;font-size:34px;letter-spacing:.12em;margin:12px 0;line-height:1.05}
+    .protocol-cover h3{font-family:Impact,"Arial Black","Bahnschrift Condensed",Arial,sans-serif;font-size:34px;letter-spacing:.12em;margin:12px 0;line-height:1.05}
     .protocol-cover p{font:italic 13px Georgia,serif;color:#aa9f8c}
     .back-cover{height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;background:linear-gradient(145deg,#0b0b0c,#181012);border:8px double #491316;color:#aa9f8c;font:italic 13px Georgia,serif}
     .controls{display:flex;align-items:center;justify-content:center;gap:1rem;padding:.8rem 0 .15rem;position:relative;z-index:4}
@@ -62,8 +61,8 @@
 <body>
   <nav id="main-nav" class="scrolled"><div class="container nav-content"><a href="index.html" class="logo">SCORPION MC</a><ul class="nav-links"><li><a href="index.html">Hakkımızda</a></li><li><a href="galeri.html">Galeri</a></li><li><a href="ekip.html">Kulüp</a></li><li><a href="hikaye.html">Hikâye</a></li><li><a href="thec.html">TheC</a></li><li><a href="tuzuk.html" class="active">Tüzük</a></li><li><a href="iletisim.html">İletişim</a></li></ul><div class="menu-toggle"><span></span><span></span><span></span></div></div></nav>
   <main>
-    <header class="hero"><p class="eyebrow">Los Santos • San Andreas</p><h1>TUZUK</h1></header>
-    <section class="constitution-layout" aria-label="Scorpion MC tuzuk kitaplari">
+    <header class="hero"><p class="eyebrow">Los Santos • San Andreas</p><h1>TÜZÜK</h1></header>
+    <section class="constitution-layout" aria-label="Scorpion MC tüzük kitapları">
       <article class="book-panel" data-book="internal">
         <div class="panel-heading"><div><span class="panel-kicker">Kulüp üyelerine özel</span><h2>İÇ TÜZÜK</h2></div></div>
         <div class="book-stage"><div class="book" id="internal-book">
@@ -71,10 +70,10 @@
           <div class="page"><div class="page-content" style="background-image:url('assets/page1.jpg')"></div></div><div class="page"><div class="page-content" style="background-image:url('assets/page2.jpg')"></div></div><div class="page"><div class="page-content" style="background-image:url('assets/page3.jpg')"></div></div><div class="page"><div class="page-content" style="background-image:url('assets/page4.jpg')"></div></div><div class="page"><div class="page-content" style="background-image:url('assets/page5.jpg')"></div></div><div class="page"><div class="page-content" style="background-image:url('assets/page6.jpg')"></div></div><div class="page"><div class="page-content" style="background-image:url('assets/page7.jpg')"></div></div><div class="page"><div class="page-content" style="background-image:url('assets/page8.jpg')"></div></div>
           <div class="page" data-density="hard"><div class="page-content" style="background-image:url('assets/back.png')"></div></div>
         </div></div>
-        <div class="controls"><button class="control-btn" data-prev="internal" aria-label="Ic tuzuk onceki sayfa">‹</button><span class="page-counter" id="internal-count">1 / 10</span><button class="control-btn" data-next="internal" aria-label="Ic tuzuk sonraki sayfa">›</button></div>
+        <div class="controls"><button class="control-btn" data-prev="internal" aria-label="İç tüzük önceki sayfa">‹</button><span class="page-counter" id="internal-count">1 / 10</span><button class="control-btn" data-next="internal" aria-label="İç tüzük sonraki sayfa">›</button></div>
       </article>
       <article class="book-panel" data-book="external">
-        <div class="panel-heading"><div><span class="panel-kicker">Ic isleyis ve kuluplerarasi protokol</span><h2>DIS TUZUK</h2></div></div>
+        <div class="panel-heading"><div><span class="panel-kicker">İç işleyiş ve kulüpler arası protokol</span><h2>DIŞ TÜZÜK</h2></div></div>
         <div class="book-stage"><div class="book" id="external-book">
           <div class="page" data-density="hard"><div class="page-content" style="background-image:url('assets/dis-cover.png')"></div></div>
           <div class="page"><div class="page-content" style="background-image:url('assets/dis-page1.png')"></div></div>
@@ -87,7 +86,7 @@
           <div class="page"><div class="page-content" style="background-image:url('assets/dis-page8.png')"></div></div>
           <div class="page" data-density="hard"><div class="page-content" style="background-image:url('assets/dis-back.png')"></div></div>
         </div></div>
-        <div class="controls"><button class="control-btn" data-prev="external" aria-label="Dis tuzuk onceki sayfa">‹</button><span class="page-counter" id="external-count">1 / 10</span><button class="control-btn" data-next="external" aria-label="Dis tuzuk sonraki sayfa">›</button></div>
+        <div class="controls"><button class="control-btn" data-prev="external" aria-label="Dış tüzük önceki sayfa">‹</button><span class="page-counter" id="external-count">1 / 10</span><button class="control-btn" data-next="external" aria-label="Dış tüzük sonraki sayfa">›</button></div>
       </article>
     </section>
   </main>

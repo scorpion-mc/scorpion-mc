@@ -3,13 +3,7 @@
    Mevcut kodları bozmadan eklenen animasyonlar
    ============================================= */
 
-@font-face {
-    font-family: 'Hessian';
-    src: url('Hessian.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
+/* Başlık fontu ortak tema dosyasında tanımlanır. */
 
 /* ---- Keyframe Tanımları ---- */
 
@@ -643,7 +637,7 @@ img {
 }
 
 .page-loader .loader-logo {
-    font-family: 'Hessian', serif;
+    font-family: Impact, "Arial Black", "Bahnschrift Condensed", Arial, sans-serif;
     font-size: 2rem;
     color: white;
     letter-spacing: 8px;
