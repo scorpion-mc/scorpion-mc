@@ -47,3 +47,9 @@ body.intro-locked{overflow:hidden}
 @keyframes fabric-wave{to{transform:translateX(18%)}}
 @keyframes intro-light{to{transform:translateX(6%);opacity:.65}}
 @media(max-width:700px){.intro-stage{width:94vw;height:55vh}.intro-pole{display:none}.intro-video{width:92vw;max-height:58vh;margin:0}.intro-controls{bottom:-5rem;flex-direction:column}.mc-intro::after{font-size:.43rem;letter-spacing:.18em}.scroll-cue{display:none!important}}
+
+/* Full-screen, automatic opening video */
+.mc-intro{display:block;background:#000}
+.mc-intro::before,.mc-intro::after{display:none}
+.mc-intro .intro-video{position:absolute;inset:0;z-index:1;width:100vw;height:100vh;max-height:none;margin:0;aspect-ratio:auto;object-fit:cover;border:0;box-shadow:none;filter:none;background:#000}
+@media(max-width:700px){.mc-intro .intro-video{width:100vw;height:100svh;max-height:none;margin:0;object-fit:cover}}
