@@ -31,8 +31,14 @@
   if(!video){finish();return}
   video.addEventListener('ended',finish,{once:true});
   video.addEventListener('error',finish,{once:true});
+  video.addEventListener('loadedmetadata',()=>{
+    if(Number.isFinite(video.duration) && video.duration>0){
+      intro.style.setProperty('--intro-duration',`${video.duration}s`);
+      setTimeout(finish,Math.ceil(video.duration*1000)+1200);
+    }
+  },{once:true});
   video.play().catch(finish);
   ['pointerdown','keydown','touchstart'].forEach(eventName=>document.addEventListener(eventName,startSound,{once:true,passive:true}));
   startSound();
-  setTimeout(finish,7000);
+  setTimeout(finish,30000);
 })();

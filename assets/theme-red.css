@@ -95,7 +95,15 @@ nav#main-nav .nav-links a::after { background:var(--mc-red-bright) !important;bo
   z-index:1 !important;
   background:#000 !important;
   filter:none !important;
-  transform:translate(-50%,-50%) !important;
+  transform:translate(-50%,-50%) scale(1.42) !important;
+  transform-origin:center center !important;
+  will-change:transform,opacity !important;
+  animation:intro-zoom-away var(--intro-duration,7s) cubic-bezier(.22,.61,.36,1) forwards !important;
+}
+@keyframes intro-zoom-away {
+  0% { transform:translate(-50%,-50%) scale(1.42); opacity:1; }
+  68% { transform:translate(-50%,-50%) scale(.96); opacity:1; }
+  100% { transform:translate(-50%,-50%) scale(.72); opacity:0; }
 }
 .flag-wave-audio { display:none; }
 
