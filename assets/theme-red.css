@@ -1,0 +1,83 @@
+/* Scorpion MC — siyah/kirmizi tema, Turkce karakter destekli sert tipografi */
+:root {
+  --mc-red: #b40f1d;
+  --mc-red-bright: #ef2638;
+  --mc-red-dark: #650810;
+  --blood: var(--mc-red) !important;
+  --blood-bright: var(--mc-red-bright) !important;
+  --red: var(--mc-red) !important;
+  --red-bright: var(--mc-red-bright) !important;
+  --gold: #b9a06d !important;
+  --accent: var(--mc-red) !important;
+  --ivory: #f3f0e8 !important;
+  --edge: rgba(255,255,255,.12) !important;
+}
+
+html, body { background:#030303 !important; color:#f3f0e8; }
+body, body p, body a, body span, body small, body button, body input, body textarea {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+}
+
+/* Başlıkların tamamı aynı sert fontu kullanır; Hessian kesinlikle devreye girmez. */
+body .logo, body .brand-font, body .footer-logo,
+body h1, body h2, body h3, body h4,
+body .hero-title, body .hero-stat strong,
+body .statement-track, body .manifesto-card b,
+body .feature-index, body .contact-title,
+body .member-name, body .member-rank,
+body .panel-heading h2, body .text-page h3,
+body .protocol-cover h3, body .legacy-quote blockquote,
+body .page-loader .loader-logo,
+body .home-section::before {
+  font-family: Impact, "Arial Black", "Bahnschrift Condensed", Arial, sans-serif !important;
+  font-weight:700 !important;
+  font-stretch:condensed;
+}
+
+body::after { background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(180,15,29,.11),transparent 23rem) !important; }
+::selection { background:var(--mc-red);color:#fff; }
+
+nav#main-nav::after,
+.hero-kicker::before,.section-kicker::before,
+.manifesto-card::after,.scroll-cue::after {
+  background:linear-gradient(90deg,var(--mc-red),var(--mc-red-bright),transparent) !important;
+  box-shadow:0 0 16px rgba(239,38,56,.5) !important;
+}
+nav#main-nav .logo::before { background:var(--mc-red-bright) !important;box-shadow:0 0 18px var(--mc-red) !important; }
+nav#main-nav .nav-links a:hover,nav#main-nav .nav-links a.active { color:#fff !important; }
+nav#main-nav .nav-links a::after { background:var(--mc-red-bright) !important;box-shadow:0 0 10px var(--mc-red) !important; }
+
+.hero-title { text-shadow:0 10px 0 #000,0 18px 45px #000,0 0 34px rgba(180,15,29,.22) !important; }
+.hero-title span {
+  color:var(--mc-red-bright) !important;
+  -webkit-text-stroke:3px #050505 !important;
+  text-shadow:0 4px 0 #000,0 10px 28px #000,0 0 30px rgba(239,38,56,.4) !important;
+}
+.mc-cta.primary { background:var(--mc-red) !important;border-color:var(--mc-red) !important;color:#fff !important; }
+.mc-cta:hover { border-color:var(--mc-red-bright) !important;box-shadow:0 16px 48px rgba(0,0,0,.5),0 0 28px rgba(180,15,29,.24) !important; }
+.statement-track span::after,.feature-index,.legacy-quote em { color:var(--mc-red-bright) !important; }
+.manifesto-card:hover,.contact-card:hover,.member-card:hover { border-color:rgba(239,38,56,.42) !important; }
+.contact-icon img { filter:grayscale(1) contrast(1.15) drop-shadow(0 0 12px rgba(239,38,56,.3)) !important; }
+.text-page h3,.text-page strong,.node-year,.timeline-year { color:#7e1117 !important; }
+.protocol-cover { border-color:#5d1619 !important;background:radial-gradient(circle at center,rgba(162,15,25,.28),transparent 44%),linear-gradient(145deg,#171112,#050505 70%) !important; }
+.control-btn:hover { border-color:var(--mc-red-bright) !important;color:#fff !important; }
+#admin-add-btn { background:var(--mc-red) !important;color:#fff !important; }
+
+/* Kaynak video kare: oran bozulmadan, tamamı görünür ve ekranın ortasında kalır. */
+.mc-intro { background:#000 !important; }
+.mc-intro .intro-video {
+  inset:0 !important;
+  width:100vw !important;
+  height:100svh !important;
+  max-width:100vw !important;
+  max-height:100svh !important;
+  margin:0 !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  background:#000 !important;
+}
+.hero-emblem { align-self:center; }
+.hero-emblem img { width:100% !important;height:auto !important;aspect-ratio:1/1;object-fit:contain !important; }
+
+img { content-visibility:auto; }
+@media(max-width:700px){.hero-title{letter-spacing:.015em !important}.mc-intro .intro-video{object-fit:contain !important}}
