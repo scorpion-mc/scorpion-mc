@@ -1,4 +1,11 @@
-/* Scorpion MC — siyah/kirmizi tema, Turkce karakter destekli sert tipografi */
+/* Scorpion MC — siyah/kırmızı tema, Türkçe karakter destekli motorcu tipografisi */
+@font-face {
+  font-family:"Pirata One";
+  src:url("PirataOne-Regular.ttf") format("truetype");
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+}
 :root {
   --mc-red: #b40f1d;
   --mc-red-bright: #ef2638;
@@ -18,7 +25,7 @@ body, body p, body a, body span, body small, body button, body input, body texta
   font-family: Inter, Arial, Helvetica, sans-serif;
 }
 
-/* İnce, dar ve motorcu afişi karakterinde; Türkçe glifleri eksiksiz destekler. */
+/* Hessian karakterine yakın, daha ince ve Türkçe glifleri eksiksiz bir font. */
 body .logo, body .brand-font, body .footer-logo,
 body h1, body h2, body h3, body h4,
 body .hero-title, body .hero-stat strong,
@@ -29,10 +36,10 @@ body .panel-heading h2, body .text-page h3,
 body .protocol-cover h3, body .legacy-quote blockquote,
 body .page-loader .loader-logo,
 body .home-section::before {
-  font-family:"Bahnschrift Condensed","Arial Narrow",Arial,sans-serif !important;
-  font-weight:500 !important;
-  font-stretch:condensed;
-  letter-spacing:.075em;
+  font-family:"Pirata One",Georgia,serif !important;
+  font-weight:400 !important;
+  font-stretch:normal;
+  letter-spacing:.055em;
 }
 
 body::after { background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(180,15,29,.11),transparent 23rem) !important; }
