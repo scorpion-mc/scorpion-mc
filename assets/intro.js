@@ -4,7 +4,10 @@
   if(!intro)return;
   const video=intro.querySelector('.intro-video');
   const flagAudio=intro.querySelector('.flag-wave-audio');
+  const introDuration=3800;
   let finished=false;
+  let finishTimer=0;
+  intro.style.setProperty('--intro-duration',`${introDuration}ms`);
   const startSound=()=>{
     if(!flagAudio)return;
     flagAudio.volume=.48;
@@ -29,16 +32,16 @@
     setTimeout(()=>intro.remove(),1100);
   };
   if(!video){finish();return}
+  const startIntro=()=>{
+    if(finishTimer)return;
+    intro.classList.add('is-playing');
+    finishTimer=setTimeout(finish,introDuration);
+  };
   video.addEventListener('ended',finish,{once:true});
   video.addEventListener('error',finish,{once:true});
-  video.addEventListener('loadedmetadata',()=>{
-    if(Number.isFinite(video.duration) && video.duration>0){
-      intro.style.setProperty('--intro-duration',`${video.duration}s`);
-      setTimeout(finish,Math.ceil(video.duration*1000)+1200);
-    }
-  },{once:true});
-  video.play().catch(finish);
+  video.addEventListener('playing',startIntro,{once:true});
+  video.play().then(startIntro).catch(finish);
   ['pointerdown','keydown','touchstart'].forEach(eventName=>document.addEventListener(eventName,startSound,{once:true,passive:true}));
   startSound();
-  setTimeout(finish,30000);
+  setTimeout(finish,8000);
 })();
