@@ -1,0 +1,67 @@
+/* Scorpion MC — siyah/sari tema ve Turkce karakter destekli ortak tipografi */
+:root {
+  --mc-yellow: #f5c400;
+  --mc-yellow-bright: #ffe04b;
+  --mc-yellow-deep: #a87900;
+  --mc-black: #030303;
+  --mc-panel: #0b0b0b;
+  --blood: var(--mc-yellow) !important;
+  --blood-bright: var(--mc-yellow-bright) !important;
+  --red: var(--mc-yellow) !important;
+  --red-bright: var(--mc-yellow-bright) !important;
+  --gold: var(--mc-yellow) !important;
+  --accent: var(--mc-yellow) !important;
+  --ivory: #f4f1e8 !important;
+}
+
+/* Hessian'a yakin, dar ve sert; İ, Ğ, Ş, Ü, Ö, Ç karakterlerini destekler. */
+.logo, .brand-font, .footer-logo, h1, h2, h3,
+.hero-title, .hero-stat strong, .statement-track,
+.manifesto-card b, .feature-index, .contact-title,
+.member-name, .panel-heading h2, .text-page h3,
+.protocol-cover h3 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Bahnschrift Condensed", Arial, sans-serif !important;
+  font-weight: 700 !important;
+  font-stretch: condensed;
+}
+
+html, body { background: var(--mc-black) !important; }
+body::after {
+  background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(245,196,0,.10), transparent 23rem) !important;
+}
+::selection { background: var(--mc-yellow); color: #050505; }
+
+nav#main-nav::after,
+.hero-kicker::before, .section-kicker::before,
+.manifesto-card::after, .scroll-cue::after {
+  background: linear-gradient(90deg, var(--mc-yellow), var(--mc-yellow-bright), transparent) !important;
+  box-shadow: 0 0 16px rgba(245,196,0,.55) !important;
+}
+nav#main-nav .logo::before { background: var(--mc-yellow-bright) !important; box-shadow: 0 0 18px var(--mc-yellow) !important; }
+nav#main-nav .nav-links a:hover, nav#main-nav .nav-links a.active { color: var(--mc-yellow-bright) !important; }
+nav#main-nav .nav-links a::after { background: var(--mc-yellow-bright) !important; box-shadow: 0 0 10px var(--mc-yellow) !important; }
+
+.hero-title { text-shadow: 0 10px 0 #000, 0 18px 45px #000, 0 0 34px rgba(245,196,0,.18) !important; }
+.hero-title span {
+  color: var(--mc-yellow) !important;
+  -webkit-text-stroke: 3px #050505 !important;
+  text-shadow: 0 4px 0 #000, 0 10px 28px #000, 0 0 30px rgba(245,196,0,.38) !important;
+}
+.mc-cta.primary { background: var(--mc-yellow) !important; border-color: var(--mc-yellow) !important; color: #050505 !important; }
+.mc-cta:hover { border-color: var(--mc-yellow-bright) !important; box-shadow: 0 16px 48px rgba(0,0,0,.5), 0 0 28px rgba(245,196,0,.2) !important; }
+.statement-track span::after, .feature-index, .legacy-quote em { color: var(--mc-yellow) !important; }
+.manifesto-card:hover { border-color: rgba(245,196,0,.45) !important; }
+.contact-icon, .member-card:hover, .feature-frame { border-color: rgba(245,196,0,.18) !important; }
+.contact-icon img { filter: sepia(1) saturate(4) hue-rotate(355deg) brightness(1.15) drop-shadow(0 0 12px rgba(245,196,0,.35)); }
+.text-page h3, .text-page strong, .node-year, .timeline-year { color: var(--mc-yellow-deep) !important; }
+.protocol-cover { border-color: var(--mc-yellow-deep) !important; background: radial-gradient(circle at center,rgba(245,196,0,.18),transparent 44%),linear-gradient(145deg,#17150d,#050505 70%) !important; }
+.control-btn:hover, .contact-card:hover { border-color: var(--mc-yellow) !important; color: var(--mc-yellow-bright) !important; }
+#admin-add-btn { background: var(--mc-yellow) !important; color: #050505 !important; }
+.mc-intro .intro-video { background: #000; }
+
+/* Görseller ekrana yaklaşana kadar çözülmez; sayfa kaydırması daha akıcı kalır. */
+img { content-visibility: auto; }
+
+@media (max-width: 700px) {
+  .hero-title { letter-spacing: .015em !important; }
+}

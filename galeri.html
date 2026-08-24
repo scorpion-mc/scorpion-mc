@@ -3,7 +3,7 @@
 <head><link rel="icon" type="image/png" href="./assets/scorpion-cross.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeri | Scorpion MC</title><link rel="stylesheet" href="./assets/premium.css?v=1">
+    <title>Galeri | Scorpion MC</title><link rel="stylesheet" href="./assets/premium.css?v=2"><link rel="stylesheet" href="./assets/theme-yellow.css?v=1">
     <link rel="stylesheet" href="./assets/mobile.css">
     <link rel="stylesheet" href="./assets/animations.css">
     <style>
@@ -229,19 +229,20 @@
         }
     </style>
     <link rel="stylesheet" href="./assets/nav-unified.css?v=2">
+    <link rel="stylesheet" href="./assets/theme-yellow.css?v=1">
 </head>
 <body>
     <nav id="main-nav">
         <div class="nav-content">
             <a href="index.html" class="logo">SCORPION MC</a>
             <ul class="nav-links">
-                <li><a href="index.html">Hakkimizda</a></li>
+                <li><a href="index.html">Hakkımızda</a></li>
                 <li><a href="galeri.html" class="active">Galeri</a></li>
-                <li><a href="ekip.html">Kulup</a></li>
-                <li><a href="hikaye.html">Hikaye</a></li>
+                <li><a href="ekip.html">Kulüp</a></li>
+                <li><a href="hikaye.html">Hikâye</a></li>
                 <li><a href="thec.html">TheC</a></li>
-                <li><a href="tuzuk.html">Tuzuk</a></li>
-                <li><a href="iletisim.html">Iletisim</a></li>
+                <li><a href="tuzuk.html">Tüzük</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
             </ul>
         </div>
     </nav>
@@ -275,7 +276,7 @@
 
     <footer style="padding: 5rem 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
         <div class="footer-logo" style="font-family:'Hessian',serif; font-size: 2rem; letter-spacing: 10px; margin-bottom: 1rem;">SCORPION MC</div>
-        <p style="color: #444; font-size: 0.7rem; letter-spacing: 3px;">© 2025 SCORPION MC. TUM HAKLARI SAKLIDIR.</p>
+        <p style="color: #777; font-size: 0.7rem; letter-spacing: 3px;">© 2026 SCORPION MC. TÜM HAKLARI SAKLIDIR.</p>
     </footer>
 
     <script>
@@ -299,12 +300,12 @@
                 data.forEach(item => {
                     const div = document.createElement('div');
                     div.className = 'gallery-item reveal';
-                    div.innerHTML = `<img src="${item.src}" alt="${item.title || ''}">`;
+                    div.innerHTML = `<img src="${item.src}" alt="${item.title || ''}" loading="lazy" decoding="async">`;
                     div.addEventListener('click', () => openLightbox(item.src, item.title, item.date));
                     wrapper.appendChild(div);
                 });
             } else {
-                wrapper.innerHTML = '<p style="color:#555;text-align:center;padding:4rem;letter-spacing:2px">Fotograflar yuklenemedi.</p>';
+                wrapper.innerHTML = '<p style="color:#777;text-align:center;padding:4rem;letter-spacing:2px">Fotoğraflar yüklenemedi.</p>';
             }
             
             const obs = new IntersectionObserver(entries => {

@@ -9,6 +9,13 @@
     finished=true;
     intro.classList.add('is-leaving');
     document.body.classList.remove('intro-locked');
+    const backgroundVideo=document.querySelector('.video-bg[data-src]');
+    if(backgroundVideo){
+      backgroundVideo.src=backgroundVideo.dataset.src;
+      backgroundVideo.removeAttribute('data-src');
+      backgroundVideo.load();
+      backgroundVideo.play().catch(()=>{});
+    }
     setTimeout(()=>intro.remove(),1100);
   };
   if(!video){finish();return}
