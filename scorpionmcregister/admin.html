@@ -49,6 +49,9 @@
       <button class="tab-btn" data-tab="rejected">
         Reddedilenler <span class="badge badge-rejected" id="rejectedCount">0</span>
       </button>
+      <button class="tab-btn" data-tab="activity">
+        FiveM Aktivite <span class="badge badge-activity" id="activityCount">0</span>
+      </button>
     </div>
 
     <!-- TAB CONTENTS -->
@@ -60,6 +63,31 @@
     </div>
     <div id="rejectedTab" class="tab-content" style="display:none;">
       <div class="app-grid" id="rejectedGrid"></div>
+    </div>
+    <div id="activityTab" class="tab-content" style="display:none;">
+      <div class="activity-summary">
+        <article><span>BUGÜN TOPLAM</span><strong id="activityToday">0 dk</strong></article>
+        <article><span>BU HAFTA</span><strong id="activityWeek">0 dk</strong></article>
+        <article><span>AKTİF OTURUM</span><strong id="activityLive">0</strong></article>
+        <article><span>TOPLAM KAYIT</span><strong id="activityTotal">0</strong></article>
+      </div>
+      <div class="activity-toolbar">
+        <div>
+          <h2>FiveM Oturum Kayıtları</h2>
+          <p>Botun algıladığı giriş ve çıkışlar anlık güncellenir.</p>
+        </div>
+        <label class="activity-search">
+          <span aria-hidden="true">🔎</span>
+          <input type="search" id="activitySearch" placeholder="Kullanıcı veya Discord ID ara">
+        </label>
+      </div>
+      <div class="activity-table-wrap">
+        <table class="activity-table">
+          <thead><tr><th>KULLANICI</th><th>GİRİŞ</th><th>ÇIKIŞ</th><th>SÜRE</th><th>DURUM</th></tr></thead>
+          <tbody id="activityRows"><tr><td colspan="5" class="activity-empty">Kayıtlar yükleniyor…</td></tr></tbody>
+        </table>
+      </div>
+      <div class="activity-footer"><span id="activityShown">0 kayıt</span><span>Son 500 oturum gösterilir</span></div>
     </div>
   </div>
 

@@ -22,6 +22,111 @@ tabBtns.forEach(btn => {
   });
 });
 
+// FiveM aktivite kayıtları
+let activitySessions = [];
+
+function activityDuration(totalSeconds) {
+  const seconds = Math.max(0, Number(totalSeconds) || 0);
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  return hours ? `${hours} sa ${minutes} dk` : `${minutes} dk`;
+}
+
+function activityDate(timestamp) {
+  if (!timestamp) return '—';
+  return new Intl.DateTimeFormat('tr-TR', {
+    dateStyle: 'short', timeStyle: 'short', timeZone: 'Europe/Istanbul'
+  }).format(new Date(timestamp));
+}
+
+function startOfIstanbulDay() {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Europe/Istanbul', year: 'numeric', month: '2-digit', day: '2-digit'
+  }).format(new Date());
+  return new Date(`${parts}T00:00:00+03:00`).getTime();
+}
+
+function durationAt(session, now = Date.now()) {
+  if (session.durationSeconds != null) return Math.max(0, Number(session.durationSeconds));
+  return Math.max(0, Math.floor((Math.min(now, Number(session.lastSeenAt) || now) - Number(session.startedAt)) / 1000));
+}
+
+function renderActivity() {
+  const query = document.getElementById('activitySearch').value.trim().toLocaleLowerCase('tr-TR');
+  const filtered = activitySessions.filter(session => {
+    const searchable = `${session.username || ''} ${session.userId || ''}`.toLocaleLowerCase('tr-TR');
+    return searchable.includes(query);
+  }).slice(0, 500);
+
+  const rows = document.getElementById('activityRows');
+  rows.textContent = '';
+
+  if (!filtered.length) {
+    const row = document.createElement('tr');
+    const cell = document.createElement('td');
+    cell.colSpan = 5;
+    cell.className = 'activity-empty';
+    cell.textContent = query ? 'Aramanıza uygun kayıt bulunamadı.' : 'Henüz FiveM oturum kaydı yok.';
+    row.appendChild(cell);
+    rows.appendChild(row);
+  } else {
+    filtered.forEach(session => {
+      const row = document.createElement('tr');
+      const userCell = document.createElement('td');
+      const user = document.createElement('div');
+      user.className = 'activity-user';
+      const avatar = document.createElement('span');
+      avatar.className = 'activity-avatar';
+      avatar.textContent = (session.username || '?').charAt(0).toUpperCase();
+      const identity = document.createElement('span');
+      const name = document.createElement('strong');
+      name.textContent = session.username || session.userId || 'Bilinmeyen';
+      const id = document.createElement('small');
+      id.textContent = session.userId || '';
+      identity.append(name, id);
+      user.append(avatar, identity);
+      userCell.appendChild(user);
+
+      const startCell = document.createElement('td');
+      startCell.textContent = activityDate(session.startedAt);
+      const endCell = document.createElement('td');
+      endCell.textContent = session.isActive ? '—' : activityDate(session.endedAt);
+      const durationCell = document.createElement('td');
+      durationCell.className = 'activity-duration';
+      durationCell.textContent = activityDuration(durationAt(session));
+      const statusCell = document.createElement('td');
+      const status = document.createElement('span');
+      status.className = session.isActive ? 'activity-status is-live' : 'activity-status';
+      status.textContent = session.isActive ? 'Aktif' : 'Tamamlandı';
+      statusCell.appendChild(status);
+      row.append(userCell, startCell, endCell, durationCell, statusCell);
+      rows.appendChild(row);
+    });
+  }
+
+  document.getElementById('activityShown').textContent = `${filtered.length} kayıt`;
+}
+
+function updateActivitySummary() {
+  const now = Date.now();
+  const todayStart = startOfIstanbulDay();
+  const weekStart = now - (7 * 24 * 60 * 60 * 1000);
+  const todaySeconds = activitySessions
+    .filter(session => Number(session.startedAt) >= todayStart)
+    .reduce((sum, session) => sum + durationAt(session, now), 0);
+  const weekSeconds = activitySessions
+    .filter(session => Number(session.startedAt) >= weekStart)
+    .reduce((sum, session) => sum + durationAt(session, now), 0);
+  const live = activitySessions.filter(session => session.isActive).length;
+  document.getElementById('activityToday').textContent = activityDuration(todaySeconds);
+  document.getElementById('activityWeek').textContent = activityDuration(weekSeconds);
+  document.getElementById('activityLive').textContent = live;
+  document.getElementById('activityTotal').textContent = activitySessions.length;
+  document.getElementById('activityCount').textContent = live || activitySessions.length;
+}
+
+document.getElementById('activitySearch').addEventListener('input', renderActivity);
+
 // Lightbox
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
@@ -91,7 +196,14 @@ function loadApplications() {
     const data = snapshot.val() || {};
     const pending = [], approved = [], rejected = [];
 
+    activitySessions = Object.values(data)
+      .filter(item => item?.recordType === 'fivem-session')
+      .sort((a, b) => Number(b.startedAt) - Number(a.startedAt));
+    updateActivitySummary();
+    renderActivity();
+
     Object.entries(data).forEach(([key, app]) => {
+      if (app?.recordType === 'fivem-session') return;
       if (app.status === 'approved') approved.push({ key, ...app });
       else if (app.status === 'rejected') rejected.push({ key, ...app });
       else pending.push({ key, ...app });
