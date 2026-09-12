@@ -238,12 +238,11 @@ body.mc-home.site-entered .hero-overlay { animation:site-overlay-in 1.65s .15s e
   nav#main-nav .nav-links li:nth-child(1) { left:0; }
   nav#main-nav .nav-links li:nth-child(2) { left:16.5%;transform:translate(-50%,-50%); }
   nav#main-nav .nav-links li:nth-child(3) { left:33%;transform:translate(-50%,-50%); }
-  nav#main-nav .nav-links li:nth-child(4) { right:33%;transform:translate(50%,-50%); }
-  nav#main-nav .nav-links li:nth-child(5) { left:50%;top:86%;z-index:5;transform:translate(-50%,-50%); }
-  nav#main-nav .nav-links li:nth-child(6) { right:16.5%;transform:translate(50%,-50%); }
+  nav#main-nav .nav-links li:nth-child(4) { right:33.75%;transform:translate(50%,-50%); }
+  nav#main-nav .nav-links li:nth-child(5) { right:22.5%;transform:translate(50%,-50%); }
+  nav#main-nav .nav-links li:nth-child(6) { right:11.25%;transform:translate(50%,-50%); }
   nav#main-nav .nav-links li:nth-child(7) { right:0; }
   nav#main-nav .nav-links a { font-size:clamp(.62rem,.72vw,.76rem) !important; }
-  nav#main-nav .nav-links li:nth-child(5) a { font-size:.52rem !important;color:#e3ddd2 !important;letter-spacing:.22em !important; }
   nav#main-nav .nav-content::before {
     content:"";
     position:absolute;
