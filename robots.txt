@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /activity-admin/
+Disallow: /scorpionmcregister/admin.html
+
+Sitemap: https://scorpionmc.com.tr/sitemap.xml
