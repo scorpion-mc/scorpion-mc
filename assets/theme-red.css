@@ -95,7 +95,7 @@ nav#main-nav .nav-links a::after { background:var(--mc-red-bright) !important;bo
   z-index:1 !important;
   background:#000 !important;
   filter:none !important;
-  transform:translate(-50%,-50%) scale(1.7) !important;
+  transform:translate(-50%,-50%) scale(1.15) !important;
   transform-origin:center center !important;
   will-change:transform,opacity !important;
   animation:intro-zoom-away var(--intro-duration,7s) cubic-bezier(.22,.61,.36,1) forwards !important;
@@ -103,9 +103,9 @@ nav#main-nav .nav-links a::after { background:var(--mc-red-bright) !important;bo
 }
 .mc-intro.is-playing .intro-video { animation-play-state:running !important; }
 @keyframes intro-zoom-away {
-  0% { transform:translate(-50%,-50%) scale(1.7); opacity:1; }
+  0% { transform:translate(-50%,-50%) scale(1.15); opacity:1; }
   72% { transform:translate(-50%,-50%) scale(1); opacity:1; }
-  100% { transform:translate(-50%,-50%) scale(.78); opacity:0; }
+  100% { transform:translate(-50%,-50%) scale(.9); opacity:0; }
 }
 .flag-wave-audio { display:none; }
 
@@ -157,9 +157,59 @@ nav#main-nav .nav-links a::after { background:var(--mc-red-bright) !important;bo
   aspect-ratio:1/1;
   object-fit:contain !important;
   background:transparent !important;
-  filter:drop-shadow(0 20px 28px rgba(0,0,0,.8)) drop-shadow(0 0 12px rgba(180,15,29,.2)) !important;
+  filter:drop-shadow(0 20px 28px rgba(0,0,0,.8)) drop-shadow(0 0 12px rgba(180,15,29,.2));
 }
 .hero-statline,.hero-stat { display:none !important; }
 
 img { content-visibility:auto; }
 @media(max-width:700px){.hero-title{letter-spacing:.035em !important}.mc-intro .intro-video{width:100vw !important;height:auto !important;object-fit:contain !important}.music-toggle{right:14px;bottom:14px;width:44px;height:44px}}
+
+/* Bayrak videosundan ana sayfaya sinematik geçiş */
+body.mc-home:not(.site-entered) #main-nav,
+body.mc-home:not(.site-entered) .hero-kicker,
+body.mc-home:not(.site-entered) .hero-title,
+body.mc-home:not(.site-entered) .hero-lead,
+body.mc-home:not(.site-entered) .hero-actions,
+body.mc-home:not(.site-entered) .hero-emblem,
+body.mc-home:not(.site-entered) .scroll-cue {
+  opacity:0;
+}
+body.mc-home:not(.site-entered) #main-nav { transform:translateY(-100%); }
+body.mc-home:not(.site-entered) .hero-kicker { transform:translateX(-42px); }
+body.mc-home:not(.site-entered) .hero-title { transform:translateY(55px) scale(.96);filter:blur(12px); }
+body.mc-home:not(.site-entered) .hero-lead,
+body.mc-home:not(.site-entered) .hero-actions { transform:translateY(34px); }
+body.mc-home:not(.site-entered) .hero-emblem { transform:translateX(70px) rotate(7deg) scale(.74);filter:blur(16px); }
+body.mc-home:not(.site-entered) .scroll-cue { transform:translateY(25px); }
+body.mc-home:not(.site-entered) .video-bg { opacity:0;transform:scale(1.13);filter:contrast(1.25) saturate(.45) brightness(.22) blur(8px); }
+
+body.mc-home.site-entered #main-nav { animation:site-nav-in .9s .35s var(--ease) both; }
+body.mc-home.site-entered .video-bg { animation:site-bg-in 1.8s .1s var(--ease) both; }
+body.mc-home.site-entered .hero-kicker { animation:site-slide-right .8s .55s var(--ease) both; }
+body.mc-home.site-entered .hero-title { animation:site-title-in 1.15s .68s var(--ease) both; }
+body.mc-home.site-entered .hero-lead { animation:site-rise-in .85s .95s var(--ease) both; }
+body.mc-home.site-entered .hero-actions { animation:site-rise-in .85s 1.1s var(--ease) both; }
+body.mc-home.site-entered .hero-emblem { animation:site-emblem-in 1.35s .72s var(--ease) both; }
+body.mc-home.site-entered .hero-emblem img { animation:site-emblem-pulse 1.6s 1.15s var(--ease) both; }
+body.mc-home.site-entered .scroll-cue { animation:site-rise-in .8s 1.45s var(--ease) both; }
+body.mc-home.site-entered .hero-overlay { animation:site-overlay-in 1.65s .15s ease-out both; }
+
+@keyframes site-nav-in { from{opacity:0;transform:translateY(-100%)} to{opacity:1;transform:translateY(0)} }
+@keyframes site-bg-in { from{opacity:0;transform:scale(1.13);filter:contrast(1.25) saturate(.45) brightness(.22) blur(8px)} to{opacity:1;transform:scale(1.04);filter:contrast(1.17) saturate(.7) brightness(.62) blur(0)} }
+@keyframes site-slide-right { from{opacity:0;transform:translateX(-42px)} to{opacity:1;transform:translateX(0)} }
+@keyframes site-title-in { 0%{opacity:0;transform:translateY(55px) scale(.96);filter:blur(12px)} 65%{opacity:1;filter:blur(0)} 100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)} }
+@keyframes site-rise-in { from{opacity:0;transform:translateY(34px)} to{opacity:1;transform:translateY(0)} }
+@keyframes site-emblem-in { 0%{opacity:0;transform:translateX(70px) rotate(7deg) scale(.74);filter:blur(16px)} 70%{opacity:1;filter:blur(0)} 100%{opacity:1;transform:translateX(0) rotate(0) scale(1);filter:blur(0)} }
+@keyframes site-emblem-pulse { 0%{filter:brightness(2) drop-shadow(0 0 45px rgba(239,38,56,.7));transform:scale(.92)} 100%{filter:drop-shadow(0 20px 28px rgba(0,0,0,.8)) drop-shadow(0 0 12px rgba(180,15,29,.2));transform:scale(1)} }
+@keyframes site-overlay-in { from{opacity:0} to{opacity:1} }
+
+@media(prefers-reduced-motion:reduce){
+  body.mc-home:not(.site-entered) #main-nav,
+  body.mc-home:not(.site-entered) .hero-kicker,
+  body.mc-home:not(.site-entered) .hero-title,
+  body.mc-home:not(.site-entered) .hero-lead,
+  body.mc-home:not(.site-entered) .hero-actions,
+  body.mc-home:not(.site-entered) .hero-emblem,
+  body.mc-home:not(.site-entered) .scroll-cue { opacity:1;transform:none;filter:none; }
+  body.mc-home:not(.site-entered) .video-bg { opacity:1;transform:scale(1.04);filter:contrast(1.17) saturate(.7) brightness(.62); }
+}

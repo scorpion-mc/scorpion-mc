@@ -22,6 +22,7 @@
     if(flagAudio){flagAudio.pause();flagAudio.currentTime=0}
     intro.classList.add('is-leaving');
     document.body.classList.remove('intro-locked');
+    requestAnimationFrame(()=>requestAnimationFrame(()=>document.body.classList.add('site-entered')));
     const backgroundVideo=document.querySelector('.video-bg[data-src]');
     if(backgroundVideo){
       backgroundVideo.src=backgroundVideo.dataset.src;
