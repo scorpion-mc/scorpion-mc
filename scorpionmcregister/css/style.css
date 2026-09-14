@@ -947,6 +947,11 @@ body {
 
 /* ===== FIVEM ACTIVITY ADMIN ===== */
 .badge-activity { background: rgba(255, 107, 0, 0.14); color: #ff8a35; }
+.activity-filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-bottom: 14px; padding: 20px; border: 1px solid var(--border-color); border-radius: var(--radius); background: rgba(255,255,255,.025); }
+.activity-filters label > span { display: block; margin-bottom: 9px; color: var(--text-muted); font-size: .68rem; letter-spacing: 1.4px; }
+.activity-filters select { width: 100%; padding: 13px 42px 13px 14px; color: var(--text-primary); border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: #080808; outline: none; cursor: pointer; }
+.activity-filters select:focus { border-color: rgba(255,107,0,.55); }
+.activity-filters select:disabled { opacity: .55; cursor: not-allowed; }
 .activity-summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-bottom: 22px; }
 .activity-summary article { padding: 22px; border: 1px solid var(--border-color); border-radius: var(--radius); background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.018)); }
 .activity-summary span { display: block; color: var(--text-muted); font-size: .7rem; letter-spacing: 1.5px; margin-bottom: 10px; }
@@ -968,10 +973,12 @@ body {
 .activity-user strong { color: var(--text-primary); margin-bottom: 3px; }
 .activity-user small { color: var(--text-muted); font-size: .68rem; }
 .activity-duration { color: #ff994c !important; font-weight: 700; }
+.activity-rank { width: 56px; color: var(--text-muted) !important; font-family: var(--font-heading); font-weight: 700; }
+.activity-rank.is-top { color: #ff994c !important; }
 .activity-status { display: inline-flex; padding: 6px 10px; border-radius: 20px; color: var(--text-muted); background: rgba(255,255,255,.055); font-size: .7rem; font-weight: 600; }
 .activity-status.is-live { color: #44ff77; background: rgba(68,255,119,.1); }
 .activity-status.is-live::before { content: ''; width: 6px; height: 6px; margin: 5px 7px 0 0; border-radius: 50%; background: #44ff77; box-shadow: 0 0 7px #44ff77; }
 .activity-empty { padding: 60px 20px !important; text-align: center; color: var(--text-muted) !important; }
 .activity-footer { display: flex; justify-content: space-between; padding: 15px 20px; border: 1px solid var(--border-color); border-radius: 0 0 var(--radius) var(--radius); color: var(--text-muted); font-size: .72rem; }
 @media (max-width: 900px) { .activity-summary { grid-template-columns: repeat(2, 1fr); }.activity-toolbar { align-items: stretch; flex-direction: column; }.activity-search { min-width: 0; width: 100%; } }
-@media (max-width: 520px) { .activity-summary { grid-template-columns: 1fr; }.activity-summary article { padding: 18px; }.activity-footer { align-items: flex-start; flex-direction: column; gap: 6px; } }
+@media (max-width: 520px) { .activity-filters, .activity-summary { grid-template-columns: 1fr; }.activity-summary article { padding: 18px; }.activity-footer { align-items: flex-start; flex-direction: column; gap: 6px; } }

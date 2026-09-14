@@ -65,16 +65,30 @@
       <div class="app-grid" id="rejectedGrid"></div>
     </div>
     <div id="activityTab" class="tab-content" style="display:none;">
+      <div class="activity-filters" aria-label="Aktivite filtreleri">
+        <label>
+          <span>SUNUCU SEÇ</span>
+          <select id="activityServer">
+            <option value="">Sunucu seçiniz</option>
+          </select>
+        </label>
+        <label>
+          <span>HAFTA SEÇ</span>
+          <select id="activityWeekSelect" disabled>
+            <option value="">Önce sunucu seçiniz</option>
+          </select>
+        </label>
+      </div>
       <div class="activity-summary">
-        <article><span>BUGÜN TOPLAM</span><strong id="activityToday">0 dk</strong></article>
-        <article><span>BU HAFTA</span><strong id="activityWeek">0 dk</strong></article>
-        <article><span>AKTİF OTURUM</span><strong id="activityLive">0</strong></article>
-        <article><span>TOPLAM KAYIT</span><strong id="activityTotal">0</strong></article>
+        <article><span>SEÇİLEN HAFTA TOPLAM</span><strong id="activityWeek">0 dk</strong></article>
+        <article><span>AKTİF OYUNCU</span><strong id="activityPlayers">0</strong></article>
+        <article><span>EN AKTİF OYUNCU</span><strong id="activityTopPlayer">—</strong></article>
+        <article><span>OTURUM SAYISI</span><strong id="activityTotal">0</strong></article>
       </div>
       <div class="activity-toolbar">
         <div>
-          <h2>FiveM Oturum Kayıtları</h2>
-          <p>Botun algıladığı giriş ve çıkışlar anlık güncellenir.</p>
+          <h2 id="activityTitle">Haftalık Oyuncu Aktivitesi</h2>
+          <p id="activityPeriod">Sonuçları görmek için sunucu ve hafta seçin.</p>
         </div>
         <label class="activity-search">
           <span aria-hidden="true">🔎</span>
@@ -83,11 +97,11 @@
       </div>
       <div class="activity-table-wrap">
         <table class="activity-table">
-          <thead><tr><th>KULLANICI</th><th>GİRİŞ</th><th>ÇIKIŞ</th><th>SÜRE</th><th>DURUM</th></tr></thead>
+          <thead><tr><th>SIRA</th><th>OYUNCU</th><th>TOPLAM SÜRE</th><th>OTURUM</th><th>SON AKTİVLİK</th></tr></thead>
           <tbody id="activityRows"><tr><td colspan="5" class="activity-empty">Kayıtlar yükleniyor…</td></tr></tbody>
         </table>
       </div>
-      <div class="activity-footer"><span id="activityShown">0 kayıt</span><span>Son 500 oturum gösterilir</span></div>
+      <div class="activity-footer"><span id="activityShown">0 oyuncu</span><span>En fazla oynayandan en aza sıralanır</span></div>
     </div>
   </div>
 
