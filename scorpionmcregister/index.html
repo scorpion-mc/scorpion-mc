@@ -1,85 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Scorpion MC - FiveM Motosiklet Kulübü. Güç ve Sadakat.">
-  <title>Scorpion MC | Güç ve Sadakat</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="assets/logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Bakımda</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body { min-height: 100vh; min-height: 100dvh; display: grid; place-items: center; background: #080808; color: #fff; font-family: Arial, sans-serif; }
+    h1 { margin: 0; padding: 24px; font-size: clamp(32px, 7vw, 64px); font-weight: 600; }
+  </style>
 </head>
-<body>
-
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
-    <a href="index.html" class="navbar-brand">
-      <img src="assets/logo.png" alt="Scorpion MC">
-      SCORPION MC
-    </a>
-    <ul class="navbar-links">
-      <li><a href="#hakkimizda">Hakkımızda</a></li>
-      <li><a href="#katil">Aramıza Katıl</a></li>
-      <li><a href="giris.html" class="btn-login">Giriş Yap</a></li>
-    </ul>
-    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">☰</button>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-    <img src="assets/logo.png" alt="Scorpion MC Logo" class="hero-logo">
-    <h1>SCORPION MC</h1>
-    <p class="hero-subtitle">Güç ve Sadakat</p>
-    <div class="hero-line"></div>
-    <a href="#katil" class="btn-primary"><span>ARAMIZA KATIL</span></a>
-  </section>
-
-  <!-- HAKKIMIZDA -->
-  <section class="section fade-in" id="hakkimizda">
-    <div class="section-line"></div>
-    <h2 class="section-title">Hakkımızda</h2>
-    <p class="section-desc">
-      Senelerdir süren rol tutkumuz bizleri farklı renklere bürüdü. Bu renkler bizlere kattığı şeyler ile birlikte geride kaldı... 2025 yılının Mayıs ayında verdiğimiz bir kararla kendi adımızı yazdık. Kendi renklerimize ve kendi benliğimizle biz olduk. Geçmişte nasılsak şimdi de öyleyiz ve hâlâ bir aradayız.
-    </p>
-  </section>
-
-  <!-- ARAMIZA KATIL -->
-  <section class="join-section fade-in" id="katil">
-    <div class="section-line"></div>
-    <h2 class="section-title">Aramıza Katıl</h2>
-    <p class="section-desc">
-      Scorpion MC ailesine katılmak istiyorsan aşağıdaki adımları takip et. Başvurunu değerlendirip sana geri dönüş yapacağız.
-    </p>
-    <div class="join-cards">
-      <div class="join-card">
-        <div class="join-card-icon">📝</div>
-        <h3>Başvuru Yap</h3>
-        <p>Formu doldur, bilgilerini gir ve başvurunu bize gönder.</p>
-      </div>
-      <div class="join-card">
-        <div class="join-card-icon">💬</div>
-        <h3>Discord'a Katıl</h3>
-        <p>Discord sunucumuza gir ve başvurunu orada da paylaş.</p>
-      </div>
-      <div class="join-card">
-        <div class="join-card-icon">✅</div>
-        <h3>Onay Bekle</h3>
-        <p>Ekibimiz başvurunu inceleyecek ve sana geri dönüş yapacak.</p>
-      </div>
-    </div>
-    <div style="margin-top: 50px;">
-      <a href="basvuru.html" class="btn-primary" style="margin-right: 16px;"><span>BAŞVURU YAP</span></a>
-      <a href="https://discord.gg/s6APjtC9YM" target="_blank" class="btn-discord">
-        <svg width="20" height="15" viewBox="0 0 71 55" fill="currentColor"><path d="M60.1 4.9A58.5 58.5 0 0045.4.2a.2.2 0 00-.2.1 40.8 40.8 0 00-1.8 3.7 54 54 0 00-16.2 0A37.3 37.3 0 0025.4.3a.2.2 0 00-.2-.1A58.4 58.4 0 0010.5 5 59.6 59.6 0 00.4 45.1a.3.3 0 00.1.2 58.9 58.9 0 0017.7 9 .2.2 0 00.3-.1 42.1 42.1 0 003.6-5.9.2.2 0 00-.1-.3 38.8 38.8 0 01-5.5-2.7.2.2 0 01 0-.4l1.1-.9a.2.2 0 01.2 0 42 42 0 0035.8 0 .2.2 0 01.2 0l1.1.9a.2.2 0 010 .4 36.4 36.4 0 01-5.5 2.7.2.2 0 00-.1.3 47.3 47.3 0 003.6 5.9.2.2 0 00.3.1 58.7 58.7 0 0017.7-9 .2.2 0 00.1-.2c1.5-15.5-2.5-29-10.6-40.2zM23.7 37a6.8 6.8 0 01-6.3-7 6.8 6.8 0 016.3-7 6.8 6.8 0 016.3 7 6.8 6.8 0 01-6.3 7zm23.2 0a6.8 6.8 0 01-6.3-7 6.8 6.8 0 016.3-7 6.8 6.8 0 016.3 7 6.8 6.8 0 01-6.3 7z"/></svg>
-        DISCORD'A GİR
-      </a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    &copy; 2025 SCORPION MC. TÜM HAKLARI SAKLIDIR.
-  </footer>
-
-  <script src="js/app.js"></script>
-</body>
+<body><main><h1>Bakımda</h1></main></body>
 </html>
