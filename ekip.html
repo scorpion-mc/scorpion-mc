@@ -1,5 +1,314 @@
 <!DOCTYPE html>
-<html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>404 Not Found</title></head>
-<body><center><h1>404 Not Found</h1></center><hr><center>nginx</center></body>
+<html lang="tr">
+<head><link rel="icon" type="image/png" href="./assets/logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Scorpion MC kulüp kadrosunu, görevlerini ve Los Santos FiveM motorcycle club yapılanmasındaki üyeleri tanı.">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://scorpionmc.com.tr/ekip.html">
+    <meta property="og:type" content="website"><meta property="og:locale" content="tr_TR"><meta property="og:site_name" content="Scorpion MC"><meta property="og:title" content="Scorpion MC Kadrosu | FiveM Türkiye"><meta property="og:description" content="Scorpion Motorcycle Club kadrosu, görevleri ve kulüp yapılanması."><meta property="og:url" content="https://scorpionmc.com.tr/ekip.html"><meta property="og:image" content="https://scorpionmc.com.tr/assets/logo.png"><meta name="twitter:card" content="summary_large_image">
+    <title>Scorpion MC Kadrosu | FiveM Türkiye</title><link rel="stylesheet" href="./assets/premium.css?v=3">
+    <style>
+        body {
+            background-color: #000;
+        }
+
+        .team-header {
+            text-align: center;
+            margin-bottom: 10rem;
+            padding-top: 5rem;
+        }
+
+        .team-header h1 {
+            font-size: 6rem;
+            letter-spacing: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .team-header p {
+            color: var(--text-dim);
+            letter-spacing: 5px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 4rem;
+            padding-bottom: 10rem;
+        }
+
+        .member-card {
+            position: relative;
+            background: #050505;
+            border: 1px solid rgba(255,255,255,0.03);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4rem 2rem;
+        }
+
+        .member-card:hover {
+            border-color: rgba(255,255,255,0.2);
+            background: #0a0a0a;
+            transform: translateY(-10px);
+        }
+
+        .member-portrait {
+            width: 250px;
+            height: 250px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .member-portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: contrast(1.1) brightness(0.8);
+            transition: var(--transition);
+        }
+
+        .member-card:hover .member-portrait img {
+            filter: contrast(1.2) brightness(1);
+            transform: scale(1.05);
+        }
+
+        .member-portrait::before {
+            content: '';
+            position: absolute;
+            inset: -10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            z-index: -1;
+            transition: var(--transition);
+        }
+
+        .member-card:hover .member-portrait::before {
+            inset: -20px;
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .member-info {
+            text-align: center;
+        }
+
+        .member-info h3 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 5px;
+        }
+
+        .member-rank {
+            display: inline-block;
+            padding: 5px 20px;
+            border: 1px solid white;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .member-bio {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            max-width: 300px;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .team-grid { grid-template-columns: 1fr; }
+            .team-header h1 { font-size: 4rem; }
+            .member-portrait { width: 200px; height: 200px; }
+        }
+    </style>
+  
+  <link rel="modulepreload" crossorigin href="./assets/main-legacy-CbIhkxtE.js">
+  <link rel="modulepreload" crossorigin href="./assets/style-legacy-toXfV2aB.js">
+  <link rel="stylesheet" href="./assets/mobile.css">
+  <link rel="stylesheet" href="./assets/animations.css">
+  <link rel="stylesheet" href="./assets/theme-red.css?v=14">
+</head>
+<body>
+    <nav id="main-nav" class="scrolled">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">SCORPION MC</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Hakkımızda</a></li>
+                <li><a href="galeri.html">Galeri</a></li>
+                <li><a href="ekip.html" class="active">Ekip</a></li>
+                <li><a href="hikaye.html">Hikâye</a></li>
+                <li><a href="thec.html">TheC</a></li>
+                <li><a href="tuzuk.html">Tüzük</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="team-header">
+            <h1 class="reveal">KADROMUZ</h1>
+            <p class="reveal">Sadakat, Kardeşlik ve Onur</p>
+        </div>
+
+        <div class="team-grid">
+            <!-- 1. PRESIDENT -->
+            <div class="member-card reveal">
+                <div class="member-portrait">
+                    <img src="assets/foto24.png" alt="President">
+                </div>
+                <div class="member-info">
+                    <h3>ESE SABLE</h3>
+                    <div class="member-rank">PRESIDENT</div>
+                    <p class="member-bio">"Kendi adımızı yazdık. Kendi renklerimiz ve kendi benliğimizle biz olduk."</p>
+                </div>
+            </div>
+
+            <!-- 2. VICE PRESIDENT -->
+            <div class="member-card reveal">
+                <div class="member-portrait">
+                    <img src="assets/ronnin.png" alt="Vice President">
+                </div>
+                <div class="member-info">
+                    <h3>RONIN TELLER</h3>
+                    <div class="member-rank">VICE PRESIDENT</div>
+                    <p class="member-bio">"Geçmişte nasılsak şimdi de öyleyiz ve hâlâ bir aradayız."</p>
+                </div>
+            </div>
+
+            <!-- 3. SGT. AT ARMS -->
+            <div class="member-card reveal">
+                <div class="member-portrait">
+                    <img src="assets/armando.png" alt="Sgt. at Arms">
+                </div>
+                <div class="member-info">
+                    <h3>ARMANDO MONTEA</h3>
+                    <div class="member-rank">SGT. AT ARMS</div>
+                    <p class="member-bio">"Bizi biz yapan şeylerin bilinciyle yolumuza devam ediyoruz."</p>
+                </div>
+            </div>
+
+            <!-- 4. SECRETARY -->
+            <div class="member-card reveal">
+                <div class="member-portrait">
+                    <img src="assets/cruz.png" alt="Cruz Biânte — Secretary">
+                </div>
+                <div class="member-info">
+                    <h3>CRUZ BIÂNTE</h3>
+                    <div class="member-rank">SECRETARY</div>
+                    <p class="member-bio">"Kulübün kalemi, kardeşliğin hafızası."</p>
+                </div>
+            </div>
+
+            <!-- 5. TREASURER -->
+            <div class="member-card reveal">
+                <div class="member-portrait">
+                    <img src="assets/simon.png" alt="Treasurer">
+                </div>
+                <div class="member-info">
+                    <h3>SIMON MONTEA</h3>
+                    <div class="member-rank">TREASURER</div>
+                    <p class="member-bio">"Güç sadakatle gelir, para ise sadece bir araçtır."</p>
+                </div>
+            </div>
+
+            <!-- 6. ENFORCER -->
+            <div class="member-card reveal">
+                <div class="member-portrait"><!-- Özel Enforcer fotoğrafını buraya ekleyebilirsin. --></div>
+                <div class="member-info">
+                    <h3><!-- Özel Enforcer ismi --></h3>
+                    <div class="member-rank">ENFORCER</div>
+                    <p class="member-bio"><!-- Özel Enforcer açıklaması --></p>
+                </div>
+            </div>
+
+            <!-- 7. ROAD CAPTAIN -->
+            <div class="member-card reveal">
+                <div class="member-portrait">
+                    <img src="assets/lucas.png" alt="Road Captain">
+                </div>
+                <div class="member-info">
+                    <h3>LUCAS VALDEZ</h3>
+                    <div class="member-rank">ROAD CAPTAIN</div>
+                    <p class="member-bio">"Yolu biz çizeriz, kardeşler arkamızdan gelir."</p>
+                </div>
+            </div>
+
+            <!-- 8. TAIL GUNNER -->
+            <div class="member-card reveal">
+                <div class="member-portrait">
+                    <img src="assets/jefi.png" alt="Tail Gunner">
+                </div>
+                <div class="member-info">
+                    <h3>JEFI HILL</h3>
+                    <div class="member-rank">TAIL GUNNER</div>
+                    <p class="member-bio">"Arkayı biz kollarız, kimse geride kalmaz."</p>
+                </div>
+            </div>
+            
+                       <!--  MEMBER -->
+            <div class="member-card reveal">
+                <div class="member-portrait">
+                    <img src="assets/baro.png" alt="Road Captain">
+                </div>
+                <div class="member-info">
+                    <h3>BARO</h3>
+                    <div class="member-rank">MEMBER OF POISON</div>
+                    <p class="member-bio">""</p>
+                </div>
+            </div>
+                       
+                        <!--  MEMBER -->
+            <div class="member-card reveal">
+                <div class="member-portrait">
+                    <img src="assets/charles.png" alt="Road Captain">
+                </div>
+                <div class="member-info">
+                    <h3>CHARLES FERGUSON</h3>
+                    <div class="member-rank">MEMBER OF POISON</div>
+                    <p class="member-bio">""</p>
+                </div>
+            </div>
+                        <!--  MEMBER -->
+            <div class="member-card reveal">
+                <div class="member-portrait">
+                    <img src="assets/roger.png" alt="Road Captain">
+                </div>
+                <div class="member-info">
+                    <h3>ROGER ROLAND</h3>
+                    <div class="member-rank">NOMAD</div>
+                    <p class="member-bio">"Göçebelerin en hızlısı..."</p>
+                </div>
+            </div>
+
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-logo brand-font">SCORPION MC</div>
+            <p class="copyright">© 2026 SCORPION MC. TÜM HAKLARI SAKLIDIR.</p>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+  <script crossorigin id="vite-legacy-polyfill" src="./assets/polyfills-legacy-XJe6vqej.js"></script>
+  <script crossorigin id="vite-legacy-entry" data-src="./assets/ekip-legacy-Dz7WzJie.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+  <script src="./assets/animations.js" defer></script><script src="./assets/premium.js" defer></script><script src="./assets/music.js?v=2" defer></script>
+</body>
 </html>

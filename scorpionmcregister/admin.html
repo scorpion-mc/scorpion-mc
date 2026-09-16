@@ -1,5 +1,118 @@
-<!DOCTYPE html>
-<html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>404 Not Found</title></head>
-<body><center><h1>404 Not Found</h1></center><hr><center>nginx</center></body>
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Scorpion MC - Admin Paneli">
+  <title>Admin Panel | Scorpion MC</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/logo.png">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" id="navbar">
+    <a href="index.html" class="navbar-brand">
+      <img src="assets/logo.png" alt="Scorpion MC">
+      SCORPION MC
+    </a>
+    <ul class="navbar-links">
+      <li><a href="index.html">Ana Sayfa</a></li>
+      <li><button class="btn-login" id="logoutBtn">Çıkış Yap</button></li>
+    </ul>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">☰</button>
+  </nav>
+
+  <!-- ADMIN PANEL -->
+  <div class="admin-container">
+    <div class="admin-header">
+      <h1>📋 Başvuru Yönetimi</h1>
+      <div class="admin-actions">
+        <button class="btn-outline" id="exportBtn" style="padding:10px 20px; font-size:0.75rem;">
+          📥 JSON DIŞA AKTAR
+        </button>
+        <label class="btn-outline" style="padding:10px 20px; font-size:0.75rem; cursor:pointer;">
+          📤 JSON İÇE AKTAR
+          <input type="file" id="importInput" accept=".json" style="display:none;">
+        </label>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="pending">
+        Bekleyenler <span class="badge badge-pending" id="pendingCount">0</span>
+      </button>
+      <button class="tab-btn" data-tab="approved">
+        Onaylananlar <span class="badge badge-approved" id="approvedCount">0</span>
+      </button>
+      <button class="tab-btn" data-tab="rejected">
+        Reddedilenler <span class="badge badge-rejected" id="rejectedCount">0</span>
+      </button>
+      <button class="tab-btn" data-tab="activity">
+        FiveM Aktivite <span class="badge badge-activity" id="activityCount">0</span>
+      </button>
+    </div>
+
+    <!-- TAB CONTENTS -->
+    <div id="pendingTab" class="tab-content">
+      <div class="app-grid" id="pendingGrid"></div>
+    </div>
+    <div id="approvedTab" class="tab-content" style="display:none;">
+      <div class="app-grid" id="approvedGrid"></div>
+    </div>
+    <div id="rejectedTab" class="tab-content" style="display:none;">
+      <div class="app-grid" id="rejectedGrid"></div>
+    </div>
+    <div id="activityTab" class="tab-content" style="display:none;">
+      <div class="activity-filters" aria-label="Aktivite filtreleri">
+        <label>
+          <span>SUNUCU SEÇ</span>
+          <select id="activityServer">
+            <option value="">Sunucu seçiniz</option>
+          </select>
+        </label>
+        <label>
+          <span>HAFTA SEÇ</span>
+          <select id="activityWeekSelect" disabled>
+            <option value="">Önce sunucu seçiniz</option>
+          </select>
+        </label>
+      </div>
+      <div class="activity-summary">
+        <article><span>SEÇİLEN HAFTA TOPLAM</span><strong id="activityWeek">0 dk</strong></article>
+        <article><span>AKTİF OYUNCU</span><strong id="activityPlayers">0</strong></article>
+        <article><span>EN AKTİF OYUNCU</span><strong id="activityTopPlayer">—</strong></article>
+        <article><span>OTURUM SAYISI</span><strong id="activityTotal">0</strong></article>
+      </div>
+      <div class="activity-toolbar">
+        <div>
+          <h2 id="activityTitle">Haftalık Oyuncu Aktivitesi</h2>
+          <p id="activityPeriod">Sonuçları görmek için sunucu ve hafta seçin.</p>
+        </div>
+        <label class="activity-search">
+          <span aria-hidden="true">🔎</span>
+          <input type="search" id="activitySearch" placeholder="Kullanıcı veya Discord ID ara">
+        </label>
+      </div>
+      <div class="activity-table-wrap">
+        <table class="activity-table">
+          <thead><tr><th>SIRA</th><th>OYUNCU</th><th>TOPLAM SÜRE</th><th>OTURUM</th><th>SON AKTİVLİK</th></tr></thead>
+          <tbody id="activityRows"><tr><td colspan="5" class="activity-empty">Kayıtlar yükleniyor…</td></tr></tbody>
+        </table>
+      </div>
+      <div class="activity-footer"><span id="activityShown">0 oyuncu</span><span>En fazla oynayandan en aza sıralanır</span></div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <img id="lightboxImg" src="" alt="Büyük görüntü">
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/admin.js"></script>
+</body>
 </html>
