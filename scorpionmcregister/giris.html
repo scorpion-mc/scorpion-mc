@@ -1,5 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>404 Not Found</title></head>
-<body><center><h1>404 Not Found</h1></center><hr><center>nginx</center></body>
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Scorpion MC - Admin Girişi">
+  <title>Giriş | Scorpion MC</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/logo.png">
+</head>
+<body>
+
+  <div class="login-container">
+    <div class="login-card glass-card">
+      <img src="assets/logo.png" alt="Scorpion MC" style="width:80px; height:80px; object-fit:contain; margin-bottom:20px; filter:drop-shadow(0 0 20px rgba(255,107,0,0.15));">
+      <h1>Admin Girişi</h1>
+      <p class="login-sub">Yönetim paneline erişmek için giriş yapın</p>
+
+      <div class="login-error" id="loginError">Kullanıcı adı veya şifre hatalı!</div>
+
+      <form id="loginForm" autocomplete="off">
+        <div class="form-group">
+          <label for="username">Kullanıcı Adı</label>
+          <input type="text" id="username" placeholder="Kullanıcı adınızı girin" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Şifre</label>
+          <input type="password" id="password" placeholder="Şifrenizi girin" required>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">
+          <span>GİRİŞ YAP</span>
+        </button>
+      </form>
+
+      <div style="margin-top:24px;">
+        <a href="index.html" style="color:var(--text-muted); font-size:0.85rem; text-decoration:none;">← Ana Sayfaya Dön</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/giris.js"></script>
+</body>
 </html>
